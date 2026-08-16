@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth scroll-pt-24" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nuaie Studio | Creative Design & Marketing</title>
+    <meta name="description" content="Nuaie Studio is a creative design and marketing studio offering social media management, video production, brand identity, web design, and hand-painted visual art.">
+    <meta property="og:title" content="Nuaie Studio | Creative Design & Marketing">
+    <meta property="og:description" content="Smart marketing and stunning design: social media, video, branding, and web design that help your business stand out and grow.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2307090C'/%3E%3Ctext x='50' y='68' font-family='sans-serif' font-size='58' font-weight='800' fill='%23CCFF00' text-anchor='middle'%3En.%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#07090C",
+                        "surface": "#0C0E12",
+                        "surface-container-low": "#111318",
+                        "surface-container": "#16181D",
+                        "surface-container-high": "#1E2025",
+                        "on-surface": "#E2E2E8",
+                        "on-surface-variant": "#A0A4B8",
+                        "primary-fixed": "#CCFF00",
+                        "primary-fixed-dim": "#ABD600",
+                        "on-primary-fixed": "#161E00",
+                        "primary-container": "#CCFF00",
+                        "secondary-container": "#00E3FD",
+                        "tertiary-fixed-dim": "#D1BCFF",
+                        "outline": "#333539",
+                        "outline-variant": "#1E2024"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["JetBrains Mono", "monospace"]
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "stack-sm": "24px",
+                        "stack-md": "48px",
+                        "stack-lg": "96px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #07090C;
+            color: #E2E2E8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Refined Glassmorphism */
+        .glass-panel {
+            background: rgba(22, 24, 29, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-panel-heavy {
+            background: rgba(12, 14, 18, 0.75);
+            backdrop-filter: blur(48px);
+            -webkit-backdrop-filter: blur(48px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Ambient Glows */
+        .glow-primary {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.08) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+        
+        .glow-secondary {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 227, 253, 0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        /* Typography Utilities */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #A0A4B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-padding {
+            padding-top: 140px;
+            padding-bottom: 140px;
+        }
+
+        /* Fixed Button Styling */
+        .btn-living {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 56px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #ccff00;
+            background-color: #16181d;
+            border: 2px solid #ccff00;
+            border-radius: 9999px;
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-living::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-living:hover::before {
+            left: 100%;
+        }
+
+        .btn-living:hover {
+            box-shadow: 0 0 25px rgba(204, 255, 0, 0.5);
+            background-color: rgba(204, 255, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-living:active {
+            transform: translateY(1px) scale(0.98);
+        }
+
+        /* Image Zoom on Hover */
+        .img-zoom-hover {
+            transition: transform 0.7s ease, filter 0.5s ease, opacity 0.5s ease;
+        }
+        .group:hover .img-zoom-hover {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .animate-slow-zoom {
+            animation: slowZoom 25s linear infinite alternate;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+
+        /* Coverflow Slider Styling */
+        .gallery-slider {
+            position: relative;
+            width: 100%;
+            height: 480px; 
+            margin: 40px auto;
+            overflow: visible; 
+        }
+        .slider-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280px;
+            height: 380px;
+            border-radius: 1.25rem;
+            transform-origin: center center;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            overflow: hidden;
+            background-color: #16181D;
+        }
+        @media (min-width: 768px) {
+            .slider-item { width: 340px; height: 460px; }
+        }
+        @media (min-width: 1024px) {
+            .slider-item { width: 380px; height: 500px; }
+        }
+        
+        .slider-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.6s ease;
+        }
+
+        /* Nav Buttons */
+        .slider-nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(22, 24, 29, 0.6);
+            backdrop-filter: blur(12px);
+            color: #fff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .slider-nav-btn:hover {
+            background: #CCFF00;
+            color: #161E00;
+            border-color: #CCFF00;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 96px;
+                padding-bottom: 96px;
+            }
+        }
+
+        /* Accessible focus states */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #CCFF00;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Respect the visitor's reduced-motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased font-body-md text-base leading-relaxed overflow-x-hidden selection:bg-primary-container selection:text-background relative">
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300" aria-label="Primary">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-6 md:px-12 h-20">
+        <!-- Brand -->
+        <a class="font-display-lg text-2xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity relative z-50" href="#">
+            <span class="lowercase tracking-tight">nuaie</span><span class="text-primary-fixed-dim">.</span>
+        </a>
+        
+        <!-- Desktop Links -->
+        <div class="hidden lg:flex gap-8 items-center">
+            <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#social">Social Media</a>
+            <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#video">Video</a>
+            <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#design">Design</a>
+            <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#art">Art</a>
+            <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#about">About</a>
+            <a class="btn-living !py-3 !px-8 !text-[13px] ml-4" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Contact Me</a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" type="button" class="lg:hidden text-white p-2 relative z-50 transition-transform hover:text-primary-container" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-outlined text-3xl" aria-hidden="true">menu</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-background/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500 lg:hidden transform scale-105">
+    <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#social">Social Media</a>
+    <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#video">Video Production</a>
+    <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#design">Brand & Design</a>
+    <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#art">Visual Art</a>
+    <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#about">About Me</a>
+    <div class="mt-8">
+        <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Contact Me</a>
+    </div>
+</div>
+
+<main class="relative z-10 w-full overflow-hidden">
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[100dvh] flex items-center justify-center px-6 md:px-12 pt-20 overflow-hidden" id="hero">
+        <div class="glow-primary top-1/4 left-1/4"></div>
+        <div class="glow-secondary bottom-1/4 right-1/4"></div>
+        
+        <div class="max-w-container-max mx-auto text-center z-10 w-full flex flex-col items-center reveal">
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-panel border border-primary-container/20 mb-10 animate-float">
+                <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span>
+                <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest font-bold">Creative Studio</span>
+            </div>
+            
+            <h1 class="font-display-lg text-5xl md:text-7xl lg:text-[88px] font-bold text-white max-w-5xl mx-auto leading-[1.1] mb-8 tracking-tight">
+                Smart Marketing.<br>
+                <span class="text-gradient">Stunning Design.</span>
+            </h1>
+            
+            <p class="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 font-light">
+                Blending beautiful visuals with proven marketing strategies to help your business stand out and grow.
+            </p>
+            
+            <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">
+                Contact Me
+            </a>
+        </div>
+
+        <!-- Animated Zoom Background Image -->
+        <div class="absolute inset-0 z-[-2] opacity-10 mix-blend-overlay w-full h-full object-cover">
+            <div class="w-full h-full bg-cover bg-center grayscale animate-slow-zoom origin-center" style="background-image: url('images/hero-background-abstract.jpg')"></div>
+        </div>
+    </header>
+
+    <!-- 1. Social Media Management -->
+    <section class="section-padding px-6 md:px-12 relative" id="social">
+        <div class="max-w-container-max mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant bg-surface-container mb-6">
+                    <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest">01 Social Media</span>
+                </div>
+                <h2 class="font-display-lg text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Social Media That Works.</h2>
+                <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto text-lg">
+                    We do more than just post. We create eye catching content and use proven strategies to turn your followers into paying customers.
+                </p>
+            </div>
+
+            <!-- Portfolio Brands -->
+            <div class="mb-24 reveal reveal-delay-1">
+                <p class="font-label-sm text-center text-on-surface-variant uppercase tracking-widest text-xs mb-8">Previously Managed Accounts</p>
+                <div class="flex flex-wrap justify-center gap-6 md:gap-12 opacity-70">
+                    <span class="font-display-lg font-semibold text-lg md:text-xl text-white transition-opacity hover:opacity-100 cursor-default">Sutera Sanctuary Lodges</span>
+                    <span class="font-display-lg font-semibold text-lg md:text-xl text-white transition-opacity hover:opacity-100 cursor-default">Gleneagles Hospital</span>
+                    <span class="font-display-lg font-semibold text-lg md:text-xl text-white transition-opacity hover:opacity-100 cursor-default">K.K.I.P. Sdn. Bhd.</span>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="max-w-3xl mx-auto mb-10 p-4 border border-primary-container/50 rounded-xl text-center bg-primary-container/5 animate-pulse reveal">
+                <p class="font-label-sm text-[11px] text-primary-container font-bold tracking-widest uppercase">Special Pricing Available for the first 5 clients only.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+                <!-- Basic -->
+                <article class="glass-panel p-8 rounded-2xl border-t-2 border-t-primary-container/50 hover:border-t-primary-container hover:-translate-y-2 transition-all duration-300 reveal reveal-delay-1">
+                    <div class="mb-8">
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-1">Basic</h3>
+                        <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-6">Build Your Presence</p>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-bold text-primary-container">RM 1,599</span>
+                            <span class="text-sm text-on-surface-variant">/mo</span>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">For businesses that need a professional and active page to build trust with their audience.</p>
+                    </div>
+                    <ul class="space-y-4 text-on-surface-variant">
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary-container text-base">done</span> Facebook & Instagram</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary-container text-base">done</span> 8 Quality Posts per month</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary-container text-base">done</span> 2 Short Videos per month</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary-container text-base">done</span> Professional Captions</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary-container text-base">done</span> 1 Photo/Video Shoot per month</li>
+                    </ul>
+                </article>
+
+                <!-- Medium -->
+                <article class="glass-panel p-8 rounded-2xl border-t-2 border-t-secondary-container/50 hover:border-t-secondary-container hover:-translate-y-2 transition-all duration-300 reveal reveal-delay-2">
+                    <div class="mb-8">
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-1">Growth</h3>
+                        <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-6">Get More Customers</p>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-bold text-secondary-container">RM 1,999</span>
+                            <span class="text-sm text-on-surface-variant">/mo</span>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">For businesses ready to run paid ads to actively attract new sales and clients.</p>
+                    </div>
+                    <ul class="space-y-4 text-on-surface-variant">
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary-container text-base">done</span> FB, IG, Threads & TikTok</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary-container text-base">done</span> 10 Quality Posts per month</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary-container text-base">done</span> 4 Short Videos per month</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary-container text-base">done</span> Paid Ads Management</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-secondary-container text-base">done</span> 2 Photo/Video Shoots per month</li>
+                    </ul>
+                </article>
+
+                <!-- Premium -->
+                <article class="glass-panel p-8 rounded-2xl border-t-2 border-t-tertiary-fixed-dim relative transform lg:-translate-y-4 hover:-translate-y-6 transition-all duration-300 shadow-2xl shadow-tertiary-fixed-dim/20 reveal reveal-delay-3">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-tertiary-fixed-dim text-background px-4 py-1 rounded-full font-label-sm text-[10px] font-bold uppercase tracking-widest">The Best Version</div>
+                    <div class="mb-8">
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-1">Premium</h3>
+                        <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-6">Fully Automated System</p>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-bold text-tertiary-fixed-dim">RM 3,299</span>
+                            <span class="text-sm text-on-surface-variant">/mo</span>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">For busy owners who want a hands free system that handles content, ads, and customer bookings automatically.</p>
+                    </div>
+                    <ul class="space-y-4 text-on-surface-variant">
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base">done</span> Manage All Social Platforms</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base">done</span> Frequent Quality Posts</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base">done</span> Advanced Paid Advertising</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base">done</span> WhatsApp Auto Replies</li>
+                        <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base">done</span> Automated Booking System</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Social Media Gallery Slider -->
+            <div class="mt-16 reveal">
+                <div class="text-center mb-8">
+                    <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-2">Gallery</p>
+                    <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Campaigns & Content</h3>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="gallery-slider" id="slider-social">
+                    <div class="slider-track">
+                        <div class="slider-item"><img src="images/social01.jpg" alt="Social Post 1" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/social02.jpg" alt="Social Post 2" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/social03.jpg" alt="Social Post 3" loading="lazy"></div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button type="button" class="slider-nav-btn" id="slider-social-prev" aria-label="Previous social media photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+                    <button type="button" class="slider-nav-btn" id="slider-social-next" aria-label="Next social media photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-16 reveal">
+                <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Consult On Strategy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Video Production -->
+    <section class="section-padding px-6 md:px-12 relative bg-surface-container-low border-y border-outline-variant/30" id="video">
+        <div class="max-w-container-max mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant bg-surface mb-6">
+                    <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest">02 Video Production</span>
+                </div>
+                <h2 class="font-display-lg text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Telling Your Story.</h2>
+                <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto text-lg">
+                    In a world full of standard videos, we create high quality films that truly capture your brand's story and leave a lasting impression.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24 items-center reveal">
+                <div>
+                    <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Videos that make people <br><span class="text-primary-container">stop scrolling.</span></h3>
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                        We are a team of passionate video creators. Whether you need a crisp modern commercial or a creative vintage style video to stand out, we make sure every shot serves a clear purpose for your business.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col justify-center border-l-2 border-primary-container/30 hover:border-primary-container transition-colors">
+                        <p class="text-4xl font-display-lg font-bold text-white mb-2">15+</p>
+                        <p class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">Years of Experience</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col justify-center border-l-2 border-secondary-container/30 hover:border-secondary-container transition-colors">
+                        <p class="text-4xl font-display-lg font-bold text-white mb-2">100m</p>
+                        <p class="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">Sales Driven (RM)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Video Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/89hLNFWY36I?si=6ka3eqWvFvFp8eCV" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/gjH6wnZIplE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/LE8iHmGSfeE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/uEEn_y4CJ28" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/5TQ_V1EDuR8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/p0XWTO16B4E?si=QhWog2ONMa7bd3M_" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl glass-panel shadow-lg lg:col-start-2 max-w-sm mx-auto w-full aspect-[16/9] reveal">
+                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.instagram.com/reel/DJnw_vozlix/embed/" title="Instagram Reel" allowtransparency="true" allowfullscreen="true" scrolling="no"></iframe>
+                </div>
+            </div>
+
+            <!-- Video BTS Gallery Slider -->
+            <div class="mt-16 reveal">
+                <div class="text-center mb-8">
+                    <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-2">Gallery</p>
+                    <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Behind The Scenes</h3>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="gallery-slider" id="slider-video">
+                    <div class="slider-track">
+                        <div class="slider-item"><img src="images/bts-onset-01.jpg" alt="BTS 1" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-02.jpg" alt="BTS 2" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-03.jpg" alt="BTS 3" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-04.jpg" alt="BTS 4" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-05.jpg" alt="BTS 5" loading="lazy"></div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button type="button" class="slider-nav-btn" id="slider-video-prev" aria-label="Previous behind-the-scenes photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+                    <button type="button" class="slider-nav-btn" id="slider-video-next" aria-label="Next behind-the-scenes photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-16 reveal">
+                <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Design & Branding -->
+    <section class="section-padding px-6 md:px-12 relative" id="design">
+        <div class="max-w-container-max mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant bg-surface mb-6">
+                    <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest">03 Design & Branding</span>
+                </div>
+                <h2 class="font-display-lg text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Look Professional. Stand Out.</h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <p class="font-body-lg text-on-surface-variant text-lg">
+                        Professional graphic design combined with marketing strategies that actually work. We don't just make things look pretty; we build visual assets designed to convert.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-24">
+                <!-- Brand Identity -->
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-primary-container/20 reveal reveal-delay-1">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
+                        <span class="material-symbols-outlined text-8xl text-primary-container">fingerprint</span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="font-label-sm text-[11px] text-primary-container mb-4 block uppercase tracking-widest flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>01 The Basics
+                        </span>
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Brand Identity</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We create everything you need to make your brand look trustworthy, unique, and memorable to your customers.</p>
+                        <div class="pt-6 border-t border-white/10">
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-sm">check_circle</span> Logo Suite & Marks</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-sm">check_circle</span> Color Palette & Typography</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-sm">check_circle</span> Complete Brand Guidelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Web Design -->
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-secondary-container/20 reveal reveal-delay-2">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
+                        <span class="material-symbols-outlined text-8xl text-secondary-container">devices</span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="font-label-sm text-[11px] text-secondary-container mb-4 block uppercase tracking-widest flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>02 Digital Hub
+                        </span>
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Web Design</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We build beautiful, fast, and easy-to-use websites optimized to capture leads and drive online sales.</p>
+                        <div class="pt-6 border-t border-white/10">
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Custom UI/UX Design</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Mobile Responsive Development</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> SEO Foundation & Copywriting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Print & Signage -->
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-tertiary-fixed-dim/20 reveal reveal-delay-3">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
+                        <span class="material-symbols-outlined text-8xl text-tertiary-fixed-dim">storefront</span>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="font-label-sm text-[11px] text-tertiary-fixed-dim mb-4 block uppercase tracking-widest flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>03 Physical Assets
+                        </span>
+                        <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Print & Signage</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We ensure your physical touchpoints—from menus to storefront signs—match the premium quality of your digital brand.</p>
+                        <div class="pt-6 border-t border-white/10">
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">check_circle</span> Menus, Flyers & Brochures</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">check_circle</span> Product Packaging</li>
+                                <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">check_circle</span> Large Format Event Signage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Design & Branding Gallery Slider -->
+            <div class="mt-16 reveal">
+                <div class="text-center mb-8">
+                    <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-2">Gallery</p>
+                    <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Previous Works</h3>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="gallery-slider" id="slider-design">
+                    <div class="slider-track">
+                        <div class="slider-item"><img src="images/design01.jpg" alt="Design 1" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design02.jpg" alt="Design 2" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design03.jpg" alt="Design 3" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design04.jpg" alt="Design 4" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design05.jpg" alt="Design 5" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design06.jpg" alt="Design 6" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design07.jpg" alt="Design 7" loading="lazy"></div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button type="button" class="slider-nav-btn" id="slider-design-prev" aria-label="Previous design work photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+                    <button type="button" class="slider-nav-btn" id="slider-design-next" aria-label="Next design work photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-16 reveal">
+                <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Get Your Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Visual Art -->
+    <section class="section-padding px-6 md:px-12 relative bg-surface-container-low border-y border-outline-variant/30" id="art">
+        <div class="max-w-container-max mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant bg-surface mb-6">
+                    <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest">04 Visual Art</span>
+                </div>
+                <h2 class="font-display-lg text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Handcrafted & Personal.</h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <p class="font-body-lg text-on-surface-variant text-lg">
+                        Taking a break from the digital screen, I create physical art using ink, watercolor, and various mediums. These hand-painted pieces offer a unique, human touch perfect for commemorating special moments.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+                <!-- Art Piece 1 -->
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-1">
+                    <img alt="Portrait Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/portrait1.jpg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <p class="text-primary-container font-label-sm text-[10px] uppercase tracking-widest mb-1">Watercolor & Ink</p>
+                        <h4 class="font-display-lg text-white font-bold text-lg mb-3">Portrait Artworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">Birthday Gifts</span>
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">Anniversaries</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 2 -->
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-2">
+                    <img alt="Landscape Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/landscape01.jpg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <p class="text-secondary-container font-label-sm text-[10px] uppercase tracking-widest mb-1">Various Media</p>
+                        <h4 class="font-display-lg text-white font-bold text-lg mb-3">Landscape Artworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">New Home</span>
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">Office Decor</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 3 -->
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-3">
+                    <img alt="Custom Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/custom01.jpg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <p class="text-tertiary-fixed-dim font-label-sm text-[10px] uppercase tracking-widest mb-1">Concept Exploration</p>
+                        <h4 class="font-display-lg text-white font-bold text-lg mb-3">Custom Pieces</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">Corporate Farewells</span>
+                            <span class="px-2.5 py-1 bg-surface-container-high/80 rounded border border-white/10 text-[10px] text-white font-medium backdrop-blur-sm">Personal Keepsakes</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 4 (CTA) -->
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel flex flex-col justify-center items-center text-center p-6 bg-surface-container-high/30 border-2 border-transparent hover:border-primary-container/40 transition-all duration-300 reveal reveal-delay-3 shadow-[0_0_20px_rgba(204,255,0,0.05)] hover:shadow-[0_0_30px_rgba(204,255,0,0.15)]">
+                    <span class="material-symbols-outlined text-4xl text-primary-container mb-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">palette</span>
+                    <h4 class="font-display-lg text-white font-bold text-lg mb-2">Want Custom Art?</h4>
+                    <p class="text-xs text-on-surface-variant mb-6 px-2">I accept a few requests for custom paintings depending on availability. Perfect for unique gifts.</p>
+                    <a class="btn-living !py-2.5 !px-6 !text-xs" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Inquire About Art</a>
+                </div>
+            </div>
+
+            <!-- Visual Art Gallery Slider -->
+            <div class="mt-16 reveal">
+                <div class="text-center mb-8">
+                    <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-2">Gallery</p>
+                    <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Art Portfolio</h3>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="gallery-slider" id="slider-art">
+                    <div class="slider-track">
+                        <div class="slider-item"><img src="images/artwork01.jpg" alt="Art 1" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork02.jpg" alt="Art 2" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork03.jpg" alt="Art 3" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork04.jpg" alt="Art 4" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork05.jpg" alt="Art 5" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork06.jpg" alt="Art 6" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork07.jpg" alt="Art 7" loading="lazy"></div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button type="button" class="slider-nav-btn" id="slider-art-prev" aria-label="Previous art photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+                    <button type="button" class="slider-nav-btn" id="slider-art-next" aria-label="Next art photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. About Me -->
+    <section class="section-padding px-6 md:px-12 relative" id="about">
+        <div class="max-w-container-max mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-outline-variant bg-surface mb-6">
+                    <span class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest">05 About Me</span>
+                </div>
+                <h2 class="font-display-lg text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Razie Alfiedan.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                
+                <!-- Portrait -->
+                <div class="lg:col-span-5 relative reveal">
+                    <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden glass-panel group shadow-2xl">
+                        <div class="glow-secondary -left-20 -top-20 opacity-40"></div>
+                        <img alt="Razie Alfiedan" loading="lazy" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="images/razie-alfiedan-portrait.jpg">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 glass-panel-heavy p-5 rounded-xl flex items-center justify-between transform transition-transform duration-500 group-hover:translate-y-[-5px]">
+                            <div>
+                                <p class="font-label-sm text-[11px] text-primary-fixed uppercase tracking-widest mb-1">Status</p>
+                                <p class="font-body-md text-sm text-white font-medium">Creative Marketing Expert</p>
+                            </div>
+                            <span class="material-symbols-outlined text-primary-container text-2xl">verified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio & Timeline -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <div class="space-y-6 font-body-lg text-lg text-on-surface-variant mb-16 reveal">
+                        <p class="text-xl text-white font-medium leading-relaxed">
+                            I am passionate about blending beautiful art with smart business strategies to help companies grow.
+                        </p>
+                        <p>
+                            After years of leading marketing for luxury brands and healthcare providers, I now run Nuaie Studio full time. In the past, I helped companies like K.K.I.P. Sdn. Bhd. make record sales and managed major campaigns for Sutera Sanctuary Lodges and Gleneagles Hospital.
+                        </p>
+                    </div>
+
+                    <!-- Career Timeline -->
+                    <h3 class="font-display-lg text-2xl font-bold text-white mb-8 reveal">My Experience</h3>
+                    <div class="relative border-l border-outline-variant pl-8 space-y-10 mb-16">
+                        
+                        <!-- Timeline Item 1 -->
+                        <div class="group relative reveal">
+                            <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-primary-container shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span>
+                            <div class="glass-panel p-6 rounded-xl border border-transparent group-hover:border-primary-container/30 transition-colors duration-300">
+                                <p class="font-label-sm text-[11px] text-primary-container mb-2 tracking-widest">AUG 2026 to PRESENT</p>
+                                <h4 class="font-display-lg font-bold text-lg text-white mb-1">Founder</h4>
+                                <p class="text-sm text-on-surface-variant">Nuaie Studio. Running my own creative and marketing studio full time.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="group relative reveal">
+                            <span class="absolute -left-[39px] top-1.5 w-3 h-3 rounded-full bg-outline-variant group-hover:bg-primary-container/50 transition-colors"></span>
+                            <div>
+                                <p class="font-label-sm text-[11px] text-on-surface-variant mb-2 tracking-widest group-hover:text-primary-container transition-colors">NOV 2024 to JUL 2026</p>
+                                <h4 class="font-display-lg font-bold text-lg text-white mb-1">Marketing Manager</h4>
+                                <p class="text-sm text-on-surface-variant">Sutera Sanctuary Lodges. Managed branding and marketing strategies.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="group relative reveal">
+                            <span class="absolute -left-[39px] top-1.5 w-3 h-3 rounded-full bg-outline-variant group-hover:bg-primary-container/50 transition-colors"></span>
+                            <div>
+                                <p class="font-label-sm text-[11px] text-on-surface-variant mb-2 tracking-widest group-hover:text-primary-container transition-colors">2023 to 2024</p>
+                                <h4 class="font-display-lg font-bold text-lg text-white mb-1">Assistant Manager</h4>
+                                <p class="text-sm text-on-surface-variant">Gleneagles Hospital Kota Kinabalu. Managed healthcare marketing.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 4 -->
+                        <div class="group relative reveal">
+                            <span class="absolute -left-[39px] top-1.5 w-3 h-3 rounded-full bg-outline-variant group-hover:bg-primary-container/50 transition-colors"></span>
+                            <div>
+                                <p class="font-label-sm text-[11px] text-on-surface-variant mb-2 tracking-widest group-hover:text-primary-container transition-colors">2021 to 2023</p>
+                                <h4 class="font-display-lg font-bold text-lg text-white mb-1">Digital Marketing Executive</h4>
+                                <p class="text-sm text-on-surface-variant">K.K.I.P. Sdn. Bhd. Ran campaigns that drove massive property sales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Off-Screen / Interests -->
+                    <h3 class="font-display-lg text-2xl font-bold text-white mb-6 reveal">What I Do Offline</h3>
+                    <div class="grid grid-cols-2 gap-4 reveal">
+                        <div class="glass-panel p-5 rounded-xl border-t border-t-secondary-container/30 hover:border-t-secondary-container transition-colors hover:-translate-y-1 transform duration-300">
+                            <h4 class="text-xs font-bold font-label-sm text-white uppercase tracking-wider mb-1">RADÙ Brews & Bites</h4>
+                            <p class="text-[13px] text-on-surface-variant">Running a riverside garage cafe.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-xl border-t border-t-secondary-container/30 hover:border-t-secondary-container transition-colors hover:-translate-y-1 transform duration-300">
+                            <h4 class="text-xs font-bold font-label-sm text-white uppercase tracking-wider mb-1">Family Life</h4>
+                            <p class="text-[13px] text-on-surface-variant">Being a dedicated husband and a father to my kids.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-xl border-t border-t-secondary-container/30 hover:border-t-secondary-container transition-colors hover:-translate-y-1 transform duration-300">
+                            <h4 class="text-xs font-bold font-label-sm text-white uppercase tracking-wider mb-1">Gardening</h4>
+                            <p class="text-[13px] text-on-surface-variant">Planting and cultivating crops in my backyard garden.</p>
+                        </div>
+                        <div class="glass-panel p-5 rounded-xl border-t border-t-secondary-container/30 hover:border-t-secondary-container transition-colors hover:-translate-y-1 transform duration-300">
+                            <h4 class="text-xs font-bold font-label-sm text-white uppercase tracking-wider mb-1">Fitness</h4>
+                            <p class="text-[13px] text-on-surface-variant">Staying active with CrossFit and archery.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="mt-24 flex flex-col items-center reveal">
+                <a class="btn-living" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Beautiful Redesigned Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/30 relative z-10 pt-24 pb-12">
+    <div class="max-w-container-max mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
+            
+            <!-- Brand & Bio -->
+            <div class="md:col-span-5 lg:col-span-4">
+                <a class="font-display-lg text-4xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity inline-block mb-6" href="#">
+                    <span class="lowercase tracking-tight">nuaie</span><span class="text-primary-fixed-dim">.</span>
+                </a>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-8 max-w-sm">
+                    Blending beautiful visuals with proven marketing strategies to help your business stand out and grow. Proudly based in Penampang, Sabah.
+                </p>
+                <a class="btn-living !py-2.5 !px-6 !text-xs" href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer">Start a Project</a>
+            </div>
+
+            <!-- Links Explore -->
+            <div class="md:col-span-3 lg:col-span-2 lg:col-start-7">
+                <h4 class="font-label-sm text-[11px] text-white uppercase tracking-widest mb-6">Explore</h4>
+                <ul class="space-y-4">
+                    <li><a href="#social" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors">Social Media</a></li>
+                    <li><a href="#video" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors">Video Production</a></li>
+                    <li><a href="#design" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors">Design & Branding</a></li>
+                    <li><a href="#art" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors">Visual Art</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="md:col-span-4 lg:col-span-3">
+                <h4 class="font-label-sm text-[11px] text-white uppercase tracking-widest mb-6">Contact</h4>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="mailto:razie.alfiedan@gmail.com" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lg">mail</span> razie.alfiedan@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/60128218280" target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lg">call</span> +60 12 821 8280
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/raziealfiedan/" target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3">
+                            <span class="material-symbols-outlined text-lg">work</span> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="font-body-md text-xs text-on-surface-variant/70">
+                &copy; 2026 Nuaie Studio. All rights reserved.
+            </p>
+            <div class="flex gap-6">
+                <a class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Subtle Nav Background on Scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('bg-surface/80', 'border-white/10');
+            nav.classList.remove('bg-surface/30', 'border-white/5');
+        } else {
+            nav.classList.add('bg-surface/30', 'border-white/5');
+            nav.classList.remove('bg-surface/80', 'border-white/10');
+        }
+    });
+
+    // Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let menuOpen = false;
+
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+            mobileMenuBtn.querySelector('span').innerText = 'close';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            mobileMenuBtn.setAttribute('aria-label', 'Close menu');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+            mobileMenuBtn.querySelector('span').innerText = 'menu';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.setAttribute('aria-label', 'Open menu');
+            document.body.style.overflow = '';
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    // Close mobile menu on Escape for keyboard users
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menuOpen) toggleMenu();
+    });
+
+    // Auto close menu when link clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menuOpen) toggleMenu();
+        });
+    });
+
+    // Scroll Reveal Animation Logic
+    document.addEventListener("DOMContentLoaded", () => {
+        const revealElements = document.querySelectorAll('.reveal');
+
+        if (!('IntersectionObserver' in window)) {
+            // Older browsers: just show everything instead of staying hidden
+            revealElements.forEach(el => el.classList.add('active'));
+            return;
+        }
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    });
+
+    // Gallery Slider Logic - Circular Looping & Autoplay Version
+    class CoverflowSlider {
+        constructor(containerId) {
+            this.container = document.getElementById(containerId);
+            if (!this.container) return;
+
+            this.items = Array.from(this.container.querySelectorAll('.slider-item'));
+            this.prevBtn = document.getElementById(containerId + '-prev');
+            this.nextBtn = document.getElementById(containerId + '-next');
+
+            // Start in the middle
+            this.currentIndex = Math.floor(this.items.length / 2);
+            this.autoPlayInterval = null;
+
+            this.init();
+        }
+
+        init() {
+            this.update();
+
+            // Wire Controls
+            if (this.prevBtn) {
+                this.prevBtn.addEventListener('click', () => {
+                    this.prev();
+                    this.resetAutoPlay();
+                });
+            }
+            if (this.nextBtn) {
+                this.nextBtn.addEventListener('click', () => {
+                    this.next();
+                    this.resetAutoPlay();
+                });
+            }
+
+            // Click any item to bring it to center
+            this.items.forEach((item, idx) => {
+                item.addEventListener('click', () => {
+                    this.currentIndex = idx;
+                    this.update();
+                    this.resetAutoPlay();
+                });
+            });
+
+            // Pause autoplay on hover for a better user experience
+            this.container.addEventListener('mouseenter', () => this.pauseAutoPlay());
+            this.container.addEventListener('mouseleave', () => this.startAutoPlay());
+            
+            // Start the automatic sliding
+            this.startAutoPlay();
+        }
+
+        next() {
+            this.currentIndex = (this.currentIndex + 1) % this.items.length;
+            this.update();
+        }
+
+        prev() {
+            this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+            this.update();
+        }
+
+        startAutoPlay() {
+            if (!this.autoPlayInterval) {
+                this.autoPlayInterval = setInterval(() => this.next(), 3500);
+            }
+        }
+
+        pauseAutoPlay() {
+            if (this.autoPlayInterval) {
+                clearInterval(this.autoPlayInterval);
+                this.autoPlayInterval = null;
+            }
+        }
+
+        resetAutoPlay() {
+            this.pauseAutoPlay();
+            this.startAutoPlay();
+        }
+
+        update() {
+            if (this.items.length === 0) return;
+
+            const len = this.items.length;
+            
+            this.items.forEach((item, index) => {
+                // Calculate distance from current index
+                let diff = index - this.currentIndex;
+
+                // Adjust for circular wrapping
+                if (diff > Math.floor(len / 2)) diff -= len;
+                if (diff < -Math.floor(len / 2)) diff += len;
+
+                let translateX = '-50%';
+                let scale = 1;
+                let zIndex = 10;
+                let opacity = 1;
+                let filter = 'brightness(1)';
+                let pointerEvents = 'auto';
+
+                if (diff === 0) {
+                    // Center item
+                    translateX = '-50%';
+                    scale = 1;
+                    zIndex = 30;
+                    opacity = 1;
+                    filter = 'brightness(1)';
+                    item.classList.add('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border', 'border-primary-container/30');
+                    item.classList.remove('border-white/5');
+                } else if (diff === 1) {
+                    // Right item
+                    translateX = 'calc(-50% + 55%)';
+                    scale = 0.85;
+                    zIndex = 20;
+                    opacity = 0.8;
+                    filter = 'brightness(0.6)';
+                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
+                    item.classList.add('border', 'border-white/5');
+                } else if (diff === -1) {
+                    // Left item
+                    translateX = 'calc(-50% - 55%)';
+                    scale = 0.85;
+                    zIndex = 20;
+                    opacity = 0.8;
+                    filter = 'brightness(0.6)';
+                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
+                    item.classList.add('border', 'border-white/5');
+                } else if (diff > 1) {
+                    // Far right (hidden off screen)
+                    translateX = 'calc(-50% + 100%)';
+                    scale = 0.6;
+                    zIndex = 10;
+                    opacity = 0;
+                    pointerEvents = 'none';
+                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
+                } else if (diff < -1) {
+                    // Far left (hidden off screen)
+                    translateX = 'calc(-50% - 100%)';
+                    scale = 0.6;
+                    zIndex = 10;
+                    opacity = 0;
+                    pointerEvents = 'none';
+                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
+                }
+
+                item.style.transform = `translate(${translateX}, -50%) scale(${scale})`;
+                item.style.zIndex = zIndex;
+                item.style.opacity = opacity;
+                item.style.pointerEvents = pointerEvents;
+                const img = item.querySelector('img');
+                if (img) img.style.filter = filter;
+            });
+        }
+    }
+
+    // Initialize all sliders
+    document.addEventListener("DOMContentLoaded", () => {
+        new CoverflowSlider('slider-social');
+        new CoverflowSlider('slider-video');
+        new CoverflowSlider('slider-design');
+        new CoverflowSlider('slider-art');
+    });
+</script>
+
+</body>
+</html>
