@@ -86,7 +86,7 @@
         }
 
         .glass-panel-heavy {
-            background: rgba(12, 14, 18, 0.75);
+            background: rgba(12, 14, 18, 0.85);
             backdrop-filter: blur(48px);
             -webkit-backdrop-filter: blur(48px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -171,6 +171,12 @@
 
         .btn-living:active {
             transform: translateY(1px) scale(0.98);
+        }
+
+        /* Form Customizations */
+        .custom-radio:checked + div, .custom-checkbox:checked + div {
+            border-color: #CCFF00;
+            background-color: rgba(204, 255, 0, 0.05);
         }
 
         /* Image Zoom on Hover */
@@ -287,7 +293,8 @@
 
         /* Accessible focus states */
         a:focus-visible,
-        button:focus-visible {
+        button:focus-visible,
+        input:focus-visible {
             outline: 2px solid #CCFF00;
             outline-offset: 3px;
             border-radius: 4px;
@@ -631,11 +638,11 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-24">
                 <!-- Brand Identity -->
-                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-primary-container/20 reveal reveal-delay-1">
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-primary-container/20 reveal reveal-delay-1 flex flex-col">
                     <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
                         <span class="material-symbols-outlined text-8xl text-primary-container" aria-hidden="true">fingerprint</span>
                     </div>
-                    <div class="relative z-10">
+                    <div class="relative z-10 flex-1">
                         <span class="font-label-sm text-[11px] text-primary-container mb-4 block uppercase tracking-widest flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>01 The Basics
                         </span>
@@ -653,33 +660,41 @@
                 </article>
                 
                 <!-- Web Design -->
-                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-secondary-container/20 reveal reveal-delay-2">
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-secondary-container/20 reveal reveal-delay-2 flex flex-col">
                     <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
                         <span class="material-symbols-outlined text-8xl text-secondary-container" aria-hidden="true">devices</span>
                     </div>
-                    <div class="relative z-10">
+                    <div class="relative z-10 flex-1 flex flex-col">
                         <span class="font-label-sm text-[11px] text-secondary-container mb-4 block uppercase tracking-widest flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>02 Digital Hub
                         </span>
                         <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Web Design</h3>
                         <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We build beautiful, fast, and easy-to-use websites optimized to capture leads and drive online sales.</p>
-                        <div class="pt-6 border-t border-white/10">
+                        <div class="pt-6 border-t border-white/10 flex-1">
                             <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
-                            <ul class="space-y-3">
+                            <ul class="space-y-3 mb-8">
                                 <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm" aria-hidden="true">check_circle</span> Custom UI/UX Design</li>
                                 <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm" aria-hidden="true">check_circle</span> Mobile Responsive Development</li>
                                 <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary-container text-sm" aria-hidden="true">check_circle</span> SEO Foundation & Copywriting</li>
                             </ul>
                         </div>
+                        
+                        <!-- Get Quote Button -->
+                        <button type="button" id="open-quote-modal" class="mt-auto w-full py-3.5 px-6 rounded-xl bg-secondary-container/10 border border-secondary-container/30 text-secondary-container font-bold text-sm hover:bg-secondary-container hover:text-background transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden">
+                            <span class="relative z-10 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">calculate</span>
+                                Get a Web Design Quote
+                            </span>
+                        </button>
                     </div>
                 </article>
                 
                 <!-- Print & Signage -->
-                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-tertiary-fixed-dim/20 reveal reveal-delay-3">
+                <article class="group relative overflow-hidden rounded-2xl glass-panel p-8 hover:bg-surface-container transition-all duration-500 hover:-translate-y-1 border border-transparent hover:border-tertiary-fixed-dim/20 reveal reveal-delay-3 flex flex-col">
                     <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500">
                         <span class="material-symbols-outlined text-8xl text-tertiary-fixed-dim" aria-hidden="true">storefront</span>
                     </div>
-                    <div class="relative z-10">
+                    <div class="relative z-10 flex-1">
                         <span class="font-label-sm text-[11px] text-tertiary-fixed-dim mb-4 block uppercase tracking-widest flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>03 Physical Assets
                         </span>
@@ -1003,6 +1018,507 @@
     </div>
 </footer>
 
+<!-- NEW: Interactive Quote Calculator Modal -->
+<div id="modal-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="quote-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop"></div>
+    
+    <!-- Changed max-w-4xl to max-w-6xl for wider side-by-side layout -->
+    <div class="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
+        
+        <!-- Close button: simple sticky bar instead of float+sticky, so it can't misbehave across browsers -->
+        <div class="sticky top-0 z-[60] flex justify-end p-4">
+            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator">
+                <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
+            </button>
+        </div>
+        
+        <div class="p-8 md:p-12 relative -mt-16">
+            <div class="mb-10 border-b border-white/10 pb-8">
+                <h2 id="quote-title" class="font-display-lg text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Create Your Custom Project Estimate</h2>
+                <p class="text-on-surface-variant text-base leading-relaxed mb-4 max-w-3xl">
+                    Select the features that align with your goals to generate an instant, transparent price projection. This covers your initial development investment as well as the ongoing annual upkeep.
+                </p>
+                <div class="p-4 rounded-lg bg-surface border border-outline flex gap-3 items-start max-w-3xl">
+                    <span class="material-symbols-outlined text-primary-container mt-0.5 text-xl" aria-hidden="true">info</span>
+                    <p class="text-xs text-on-surface-variant">
+                        <strong class="text-white font-medium">Note:</strong> This tool provides a preliminary calculation, not a binding contract. Final project costs are determined by your exact scope. Submit your selections below, and we will reach out with a finalized, tailored proposal.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Changed Form layout to flex column on mobile, row on desktop -->
+            <form id="quote-calculator-form" class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
+                
+                <!-- LEFT COLUMN: Selections -->
+                <div class="flex-1 space-y-12 w-full">
+                    <!-- Section 2: Primary Platform Type -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">1</span> 
+                                Primary Platform Type
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">Select the core function of your site.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
+                                    <input type="radio" name="calc_platform" value="Digital Profile" class="custom-radio sr-only peer" checked>
+                                    <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background"></div>
+                                    <div class="flex flex-col h-full relative z-10">
+                                        <span class="font-bold text-white mb-2 flex justify-between items-start">
+                                            Digital Profile Showcase
+                                            <span class="radio-indicator shrink-0 ml-2 w-4 h-4 rounded-full border border-white/30 flex items-center justify-center mt-1">
+                                                <span class="w-2 h-2 rounded-full bg-primary-container opacity-0 transition-opacity"></span>
+                                            </span>
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant leading-relaxed">Ideal for establishing credibility, highlighting expertise, and generating incoming leads.</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
+                                    <input type="radio" name="calc_platform" value="E-Commerce Storefront" class="custom-radio sr-only peer">
+                                    <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background"></div>
+                                    <div class="flex flex-col h-full relative z-10">
+                                        <span class="font-bold text-white mb-2 flex justify-between items-start">
+                                            E-Commerce Storefront
+                                            <span class="radio-indicator shrink-0 ml-2 w-4 h-4 rounded-full border border-white/30 flex items-center justify-center mt-1">
+                                                <span class="w-2 h-2 rounded-full bg-primary-container opacity-0 transition-opacity"></span>
+                                            </span>
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant leading-relaxed">Fully equipped to display products, manage inventory, and process digital payments.</span>
+                                    </div>
+                                </label>
+
+                                <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper md:col-span-2">
+                                    <input type="radio" name="calc_platform" value="Custom Enterprise Portal" class="custom-radio sr-only peer">
+                                    <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background"></div>
+                                    <div class="flex flex-col h-full relative z-10">
+                                        <span class="font-bold text-white mb-2 flex justify-between items-start">
+                                            Custom Enterprise Portal
+                                            <span class="radio-indicator shrink-0 ml-2 w-4 h-4 rounded-full border border-white/30 flex items-center justify-center mt-1">
+                                                <span class="w-2 h-2 rounded-full bg-primary-container opacity-0 transition-opacity"></span>
+                                            </span>
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant leading-relaxed">Suited for complex organizational needs, custom databases, or specialized user access.</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 3: Core Foundation & Setup -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">2</span> 
+                                Core Foundation & Setup
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">The essential building blocks of your digital presence.</p>
+                            
+                            <div class="space-y-4">
+                                <!-- Standard Base (Locked) -->
+                                <div class="p-5 rounded-xl border border-primary-container/30 bg-primary-container/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div>
+                                        <span class="flex items-center gap-2 font-bold text-white mb-1">
+                                            <span class="material-symbols-outlined text-primary-container text-[18px]" aria-hidden="true">lock</span>
+                                            Standard Web Architecture (Required)
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant block leading-relaxed">Includes up to 8 core pages, mobile-responsive layouts, initial content integration, standard contact forms, and 2 rounds of design revisions. (Standard legal pages like Privacy Policy are included for free).</span>
+                                    </div>
+                                    <div class="font-label-sm text-primary-container font-bold whitespace-nowrap text-right text-lg">
+                                        RM 3,200
+                                    </div>
+                                </div>
+
+                                <!-- Add-ons with Inputs -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="p-5 rounded-xl border border-white/10 bg-surface/40 flex flex-col justify-between">
+                                        <div class="mb-4">
+                                            <label for="calc_extra_pages" class="font-bold text-white block mb-1 cursor-pointer">Additional Sub-Pages</label>
+                                            <span id="calc_extra_pages_help" class="text-xs text-on-surface-variant">Need more than 8 pages? Add them here.</span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto">
+                                            <div class="flex items-center gap-2">
+                                                <input type="number" id="calc_extra_pages" name="extra_pages" min="0" max="50" value="0" inputmode="numeric" aria-describedby="calc_extra_pages_help" class="w-20 bg-surface border-white/20 rounded text-white text-sm focus:ring-primary-container focus:border-primary-container p-2 text-center calc-input">
+                                                <span class="text-xs text-on-surface-variant">pages</span>
+                                            </div>
+                                            <span class="text-sm text-white font-label-sm">+ RM 200 /ea</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-5 rounded-xl border border-white/10 bg-surface/40 flex flex-col justify-between">
+                                        <div class="mb-4">
+                                            <label for="calc_extra_products" class="font-bold text-white block mb-1 cursor-pointer">Digital Inventory Upload</label>
+                                            <span id="calc_extra_products_help" class="text-xs text-on-surface-variant leading-relaxed">20 products included. Extra items loaded at RM20 each (client must provide imagery and descriptions).</span>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto">
+                                            <div class="flex items-center gap-2">
+                                                <input type="number" id="calc_extra_products" name="extra_products" min="0" max="500" value="0" inputmode="numeric" aria-describedby="calc_extra_products_help" class="w-20 bg-surface border-white/20 rounded text-white text-sm focus:ring-primary-container focus:border-primary-container p-2 text-center calc-input">
+                                                <span class="text-xs text-on-surface-variant">extra items</span>
+                                            </div>
+                                            <span class="text-sm text-white font-label-sm">+ RM 20 /ea</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 4: Aesthetics & Visual Identity -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">3</span> 
+                                Aesthetics & Visual Identity
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">How your site looks and feels.</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Radios -->
+                                <div class="space-y-3">
+                                    <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                        <div class="flex items-center gap-3">
+                                            <input type="radio" name="calc_aesthetics" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background shrink-0" checked>
+                                            <div>
+                                                <span class="block text-sm text-white font-bold">In-House Creative Direction</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We craft a modern layout perfectly suited to your industry standards.</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-label-sm text-primary-container ml-4 whitespace-nowrap">Included</span>
+                                    </label>
+                                    
+                                    <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                        <div class="flex items-center gap-3">
+                                            <input type="radio" name="calc_aesthetics" value="400" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                            <div>
+                                                <span class="block text-sm text-white font-bold">Strict Brand Adherence</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We build the site strictly matching your pre-existing brand book, custom typography, and exact color palettes.</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 400</span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Checkboxes -->
+                                <div class="space-y-3">
+                                    <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                        <div class="flex items-center gap-3">
+                                            <input type="checkbox" name="addon_logo_concept" value="450" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                            <div>
+                                                <span class="block text-sm text-white font-bold">Custom Logo Concepting</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Need a logo? We'll design a professional, scalable graphic identity for your business.</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 450</span>
+                                    </label>
+
+                                    <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                        <div class="flex items-center gap-3">
+                                            <input type="checkbox" name="addon_brand_kit" value="850" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                            <div>
+                                                <span class="block text-sm text-white font-bold">Comprehensive Brand Kit</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Includes logo creation plus a full visual guideline document.</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 850</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 5: Content Management -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">4</span> 
+                                Content Management
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">Who makes changes after the site goes live?</p>
+
+                            <div class="space-y-3">
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="calc_content" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0" checked>
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Managed Content Plan</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Send us your text or image updates, and we handle the technical execution (covered under your annual maintenance plan).</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-primary-container ml-4 whitespace-nowrap">Included</span>
+                                </label>
+                                
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="calc_content" value="600" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Basic Article Editor</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We grant you specific backend access allowing you to independently write, edit, and publish your own blog posts or news updates.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 600</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="calc_content" value="1200" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Complete Administrative Freedom</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Full platform handover. You get total control to modify text, swap imagery, and alter layouts whenever you want.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 1,200</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 6: Functionality Add-Ons -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">5</span> 
+                                Functionality Add-Ons
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">Extra tools to boost user experience.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_payment_gateway" value="350" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Payment Gateway Integration</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Linking your preferred local payment processor.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 350</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_analytics" value="250" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Visitor Traffic Analytics</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Setup of backend tracking to see how many visit.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 250</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_bilingual" value="350" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Bilingual Site Toggle</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Framework setup to display your site in a secondary language.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 350</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_whatsapp" value="150" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Direct WhatsApp Widget</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">A floating, one-click chat button present on every page.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 150</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_social_feed" value="250" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Automated Social Feed</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Live, updating gallery showcasing your latest Instagram.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 250</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_lead_capture" value="300" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Lead Capture Setup</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Integration of email forms to build your newsletter list.</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 300</span>
+                                </label>
+
+                                <!-- Annual Addon -->
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-secondary-container/50 custom-checkbox-wrapper md:col-span-2 bg-gradient-to-r from-surface/40 to-secondary-container/5">
+                                    <div class="flex items-start gap-3">
+                                        <input type="checkbox" name="addon_corporate_email" value="200" class="calc_addon_annual custom-checkbox w-4 h-4 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Professional Corporate Email</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Setup of a custom business address (e.g., hello@yourdomain.com).</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-label-sm text-secondary-container ml-2 whitespace-nowrap">+ RM 200 / yr</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 7: Search Engine Visibility -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">6</span> 
+                                Search Engine Visibility
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">Helping your audience find you organically.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <input type="checkbox" name="addon_seo_foundational" value="800" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 800</span>
+                                    </div>
+                                    <span class="block text-sm text-white font-bold mb-1">Foundational SEO Structuring</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Optimization of meta descriptions, page titles, and backend architecture so search engines can easily index your site.</span>
+                                </label>
+
+                                <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <input type="checkbox" name="addon_seo_regional" value="600" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 600</span>
+                                    </div>
+                                    <span class="block text-sm text-white font-bold mb-1">Regional Search Boost</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Targeted optimization focused on drawing local foot traffic and improving map-based search results.</span>
+                                </label>
+
+                                <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <input type="checkbox" name="addon_google_business" value="250" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 250</span>
+                                    </div>
+                                    <span class="block text-sm text-white font-bold mb-1">Google Business Profile</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Professional setup and optimization of your digital storefront card on Google Search.</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 8: Annual Care Subscription -->
+                    <section>
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <span class="flex items-center justify-center w-6 h-6 rounded bg-secondary-container text-background text-xs font-bold">7</span> 
+                            Annual Care Subscription
+                        </h3>
+                        <p class="text-sm text-on-surface-variant mb-6">Keeping your platform secure and operational.</p>
+                        
+                        <div class="p-6 rounded-xl border border-secondary-container/30 bg-secondary-container/5 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div>
+                                <span class="flex items-center gap-2 font-bold text-white mb-2">
+                                    <span class="material-symbols-outlined text-secondary-container text-[18px]" aria-hidden="true">lock</span>
+                                    Annual Hosting & Platform Management (Required)
+                                </span>
+                                <span class="text-sm text-on-surface-variant block leading-relaxed">Billed upfront with your initial build, then renewed annually. This vital subscription covers premium web hosting, yearly domain name renewal, SSL security encryption, daily system backups, vital software updates, and ongoing technical support.</span>
+                            </div>
+                            <div class="font-label-sm text-secondary-container font-bold whitespace-nowrap text-xl text-right">
+                                RM 850 <span class="text-sm text-on-surface-variant font-body-md">/ yr</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 9: Specialized Integrations -->
+                    <section class="pb-12 lg:pb-0">
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-surface-container-high text-on-surface-variant text-xs font-bold">8</span> 
+                                Specialized Integrations
+                            </legend>
+                            <p class="text-sm text-on-surface-variant mb-6">Select any complex features you require, and we will formulate a bespoke cost.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface/50 cursor-pointer border border-transparent hover:border-white/10 transition-colors">
+                                    <input type="checkbox" name="calc_special" value="Appointment Scheduling & Booking Engines" class="w-4 h-4 rounded border-white/20 bg-surface focus:ring-primary-container text-primary-container shrink-0">
+                                    <span class="text-sm text-white">Appointment Scheduling & Booking Engines</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface/50 cursor-pointer border border-transparent hover:border-white/10 transition-colors">
+                                    <input type="checkbox" name="calc_special" value="Exclusive Member Portals / Paywalls" class="w-4 h-4 rounded border-white/20 bg-surface focus:ring-primary-container text-primary-container shrink-0">
+                                    <span class="text-sm text-white">Exclusive Member Portals / Paywalls</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface/50 cursor-pointer border border-transparent hover:border-white/10 transition-colors">
+                                    <input type="checkbox" name="calc_special" value="Real Estate / Property Listing Directories" class="w-4 h-4 rounded border-white/20 bg-surface focus:ring-primary-container text-primary-container shrink-0">
+                                    <span class="text-sm text-white">Real Estate / Property Listing Directories</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface/50 cursor-pointer border border-transparent hover:border-white/10 transition-colors">
+                                    <input type="checkbox" name="calc_special" value="Event Registration & Digital Ticketing" class="w-4 h-4 rounded border-white/20 bg-surface focus:ring-primary-container text-primary-container shrink-0">
+                                    <span class="text-sm text-white">Event Registration & Digital Ticketing</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface/50 cursor-pointer md:col-span-2 border border-transparent hover:border-white/10 transition-colors">
+                                    <input type="checkbox" name="calc_special" value="Online Course / Learning Management Systems (LMS)" class="w-4 h-4 rounded border-white/20 bg-surface focus:ring-primary-container text-primary-container shrink-0">
+                                    <span class="text-sm text-white">Online Course / Learning Management Systems (LMS)</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+                </div>
+
+                <!-- RIGHT COLUMN: Sticky Total Display & Form Submission -->
+                <!-- The 'sticky top-4' class keeps this panel visible as the user scrolls the left column -->
+                <div class="w-full lg:w-[380px] shrink-0 lg:sticky lg:top-4 bg-surface/90 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl z-20">
+                    
+                    <!-- Vertical Totals -->
+                    <div class="flex flex-col gap-6 mb-8 pb-8 border-b border-white/10">
+                        <div>
+                            <p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-label-sm mb-2">Estimated Initial Investment</p>
+                            <div class="text-4xl font-display-lg font-bold text-primary-container" aria-live="polite" aria-atomic="true">
+                                RM <span id="calc_total_initial">3,200</span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/5"></div>
+                        <div>
+                            <p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-label-sm mb-2">Recurring Annual Upkeep <span class="lowercase opacity-70">(Starts Yr 2)</span></p>
+                            <div class="text-3xl font-display-lg font-bold text-secondary-container" aria-live="polite" aria-atomic="true">
+                                RM <span id="calc_total_annual">850</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Fields stacked for narrow sidebar -->
+                    <div class="space-y-5 mb-8">
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_name">Name</label>
+                            <input type="text" id="calc_name" name="name" autocomplete="name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_email">Email Address</label>
+                            <input type="email" id="calc_email" name="email" autocomplete="email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_phone">Phone / WhatsApp</label>
+                            <input type="tel" id="calc_phone" name="phone" autocomplete="tel" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                    </div>
+
+                    <fieldset class="border-0 p-0 m-0 min-w-0 space-y-4 mb-8">
+                        <legend class="sr-only">How would you like to proceed?</legend>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="radio" name="calc_intent" value="This estimate aligns with my current budget. Let's discuss the next steps." class="mt-1 w-4 h-4 text-primary-container bg-background border-white/30 focus:ring-primary-container shrink-0" required>
+                            <span class="text-[13px] text-white/80 group-hover:text-white transition-colors leading-relaxed">This estimate aligns with my current budget. Let's discuss the next steps.</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="radio" name="calc_intent" value="I have questions about this estimate. Please contact me to clarify." class="mt-1 w-4 h-4 text-primary-container bg-background border-white/30 focus:ring-primary-container shrink-0" required>
+                            <span class="text-[13px] text-white/80 group-hover:text-white transition-colors leading-relaxed">I have questions about this estimate. Please contact me to clarify.</span>
+                        </label>
+                    </fieldset>
+
+                    <button type="submit" class="w-full py-4 px-6 rounded-xl bg-primary-container text-background font-bold text-[15px] hover:bg-primary-fixed-dim transition-colors flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform" aria-hidden="true">send</span> Request Proposal
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Privacy Policy Modal -->
 <div id="modal-privacy" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="privacy-title" role="dialog" aria-modal="true">
     <!-- Backdrop -->
@@ -1144,7 +1660,6 @@
         const revealElements = document.querySelectorAll('.reveal');
 
         if (!('IntersectionObserver' in window)) {
-            // Older browsers: just show everything instead of staying hidden
             revealElements.forEach(el => el.classList.add('active'));
             return;
         }
@@ -1153,7 +1668,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    // Stop observing once animated
                     observer.unobserve(entry.target);
                 }
             });
@@ -1176,11 +1690,8 @@
             this.nextBtn = document.getElementById(containerId + '-next');
             this.toggleBtn = document.getElementById(containerId + '-toggle');
 
-            // Start in the middle
             this.currentIndex = Math.floor(this.items.length / 2);
             this.autoPlayInterval = null;
-            // Tracks whether the visitor explicitly paused the slideshow,
-            // so hover/focus handling doesn't override their choice.
             this.userPaused = false;
 
             this.init();
@@ -1189,7 +1700,6 @@
         init() {
             this.update();
 
-            // Wire Controls
             if (this.prevBtn) {
                 this.prevBtn.addEventListener('click', () => {
                     this.prev();
@@ -1214,7 +1724,6 @@
                 });
             }
 
-            // Click any item to bring it to center
             this.items.forEach((item, idx) => {
                 item.addEventListener('click', () => {
                     this.currentIndex = idx;
@@ -1223,8 +1732,6 @@
                 });
             });
 
-            // Pause autoplay on hover or keyboard focus so moving content
-            // never traps a visitor who is reading or tabbing through it.
             this.container.addEventListener('mouseenter', () => this.pauseAutoPlay());
             this.container.addEventListener('mouseleave', () => {
                 if (!this.userPaused) this.startAutoPlay();
@@ -1234,7 +1741,6 @@
                 if (!this.userPaused) this.startAutoPlay();
             });
 
-            // Start the automatic sliding
             this.startAutoPlay();
         }
 
@@ -1280,14 +1786,11 @@
 
         update() {
             if (this.items.length === 0) return;
-
             const len = this.items.length;
             
             this.items.forEach((item, index) => {
-                // Calculate distance from current index
                 let diff = index - this.currentIndex;
 
-                // Adjust for circular wrapping
                 if (diff > Math.floor(len / 2)) diff -= len;
                 if (diff < -Math.floor(len / 2)) diff += len;
 
@@ -1299,7 +1802,6 @@
                 let pointerEvents = 'auto';
 
                 if (diff === 0) {
-                    // Center item
                     translateX = '-50%';
                     scale = 1;
                     zIndex = 30;
@@ -1308,7 +1810,6 @@
                     item.classList.add('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border', 'border-primary-container/30');
                     item.classList.remove('border-white/5');
                 } else if (diff === 1) {
-                    // Right item
                     translateX = 'calc(-50% + 55%)';
                     scale = 0.85;
                     zIndex = 20;
@@ -1317,7 +1818,6 @@
                     item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
                     item.classList.add('border', 'border-white/5');
                 } else if (diff === -1) {
-                    // Left item
                     translateX = 'calc(-50% - 55%)';
                     scale = 0.85;
                     zIndex = 20;
@@ -1326,7 +1826,6 @@
                     item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
                     item.classList.add('border', 'border-white/5');
                 } else if (diff > 1) {
-                    // Far right (hidden off screen)
                     translateX = 'calc(-50% + 100%)';
                     scale = 0.6;
                     zIndex = 10;
@@ -1334,7 +1833,6 @@
                     pointerEvents = 'none';
                     item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
                 } else if (diff < -1) {
-                    // Far left (hidden off screen)
                     translateX = 'calc(-50% - 100%)';
                     scale = 0.6;
                     zIndex = 10;
@@ -1353,6 +1851,94 @@
         }
     }
 
+    // Interactive Pricing Calculator Logic
+    function initializeCalculator() {
+        const inputs = document.querySelectorAll('.calc-input');
+        const initialEl = document.getElementById('calc_total_initial');
+        const annualEl = document.getElementById('calc_total_annual');
+
+        function calculateQuote() {
+            let initialTotal = 3200; // Updated Base Standard Web Architecture
+            let annualTotal = 850;   // Updated Base Hosting & Management
+
+            // Add-ons
+            const extraPages = parseInt(document.getElementById('calc_extra_pages').value) || 0;
+            initialTotal += extraPages * 200; // Updated
+
+            const extraProducts = parseInt(document.getElementById('calc_extra_products').value) || 0;
+            initialTotal += extraProducts * 20; // Updated
+
+            // Aesthetics Radio
+            const aesthetics = document.querySelector('input[name="calc_aesthetics"]:checked');
+            if (aesthetics) initialTotal += parseInt(aesthetics.value);
+
+            // Content Management Radio
+            const content = document.querySelector('input[name="calc_content"]:checked');
+            if (content) initialTotal += parseInt(content.value);
+
+            // Initial Checkboxes
+            document.querySelectorAll('.calc_addon_initial:checked').forEach(cb => {
+                initialTotal += parseInt(cb.value);
+            });
+
+            // Annual Checkboxes
+            document.querySelectorAll('.calc_addon_annual:checked').forEach(cb => {
+                annualTotal += parseInt(cb.value);
+            });
+
+            // Format styling
+            initialEl.textContent = initialTotal.toLocaleString('en-MY');
+            annualEl.textContent = annualTotal.toLocaleString('en-MY');
+        }
+
+        // Add listeners to recalculate on change
+        inputs.forEach(input => {
+            input.addEventListener('input', calculateQuote);
+            input.addEventListener('change', calculateQuote);
+        });
+
+        // Form Submission to WhatsApp
+        const form = document.getElementById('quote-calculator-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('calc_name').value;
+                const email = document.getElementById('calc_email').value;
+                const phone = document.getElementById('calc_phone').value;
+                const intent = document.querySelector('input[name="calc_intent"]:checked').value;
+                const platform = document.querySelector('input[name="calc_platform"]:checked').value;
+                const initTotal = document.getElementById('calc_total_initial').textContent;
+                const annTotal = document.getElementById('calc_total_annual').textContent;
+
+                // Collect special integrations
+                let specialSelected = [];
+                document.querySelectorAll('input[name="calc_special"]:checked').forEach(cb => {
+                    specialSelected.push("- " + cb.value);
+                });
+
+                let msg = `Hello Nuaie Studio,\n\nI just used the Custom Project Estimator on your website and would like to discuss my project.\n\n`;
+                msg += `*Name:* ${name}\n`;
+                msg += `*Email:* ${email}\n`;
+                msg += `*Phone:* ${phone}\n\n`;
+                msg += `*Estimated Initial Investment:* RM ${initTotal}\n`;
+                msg += `*Recurring Annual Upkeep:* RM ${annTotal}\n\n`;
+                msg += `*Platform:* ${platform}\n`;
+                
+                if (specialSelected.length > 0) {
+                    msg += `\n*Special Integrations Requested:*\n${specialSelected.join('\n')}\n\n`;
+                } else {
+                    msg += `\n`;
+                }
+                
+                msg += `*Client Note:* ${intent}`;
+
+                const whatsappUrl = `https://wa.me/60128218280?text=${encodeURIComponent(msg)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+    }
+
     // Initialize all sliders and Modals
     document.addEventListener("DOMContentLoaded", () => {
         new CoverflowSlider('slider-social');
@@ -1360,52 +1946,50 @@
         new CoverflowSlider('slider-design');
         new CoverflowSlider('slider-art');
         
+        initializeCalculator();
+        
         // --- Modals Logic ---
         const modalPrivacy = document.getElementById('modal-privacy');
         const modalTerms = document.getElementById('modal-terms');
+        const modalQuote = document.getElementById('modal-quote');
+        
         const btnPrivacy = document.getElementById('open-privacy');
         const btnTerms = document.getElementById('open-terms');
+        const btnQuote = document.getElementById('open-quote-modal');
+        
         const closeButtons = document.querySelectorAll('.close-modal');
         const backdrops = document.querySelectorAll('.modal-backdrop');
 
-        // Remembers whichever element had focus before a modal opened, so
-        // focus can return there when the modal closes (keyboard users
-        // shouldn't get dropped back at the top of the page).
         let lastFocusedElement = null;
 
         function getFocusableElements(modal) {
             return Array.from(
-                modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+                modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
             ).filter(el => el.offsetParent !== null);
         }
 
-        // Open Modal Function
         function openModal(modal, trigger) {
             lastFocusedElement = trigger || document.activeElement;
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modal.querySelector('.modal-content').classList.remove('scale-95');
             modal.querySelector('.modal-content').classList.add('scale-100');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden'; 
 
-            // Move focus into the dialog for keyboard and screen-reader users
             const focusable = getFocusableElements(modal);
             if (focusable.length) focusable[0].focus();
         }
 
-        // Close Modal Function
         function closeModal(modal) {
             modal.classList.add('opacity-0', 'pointer-events-none');
             modal.querySelector('.modal-content').classList.add('scale-95');
             modal.querySelector('.modal-content').classList.remove('scale-100');
-            document.body.style.overflow = ''; // Restore background scrolling
+            document.body.style.overflow = ''; 
 
-            // Return focus to whatever opened the modal
             if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
                 lastFocusedElement.focus();
             }
         }
 
-        // Keep keyboard focus inside the open modal (Tab / Shift+Tab loop)
         function trapFocus(e, modal) {
             if (e.key !== 'Tab') return;
             const focusable = getFocusableElements(modal);
@@ -1425,8 +2009,9 @@
         // Event Listeners for Opening
         if (btnPrivacy) btnPrivacy.addEventListener('click', (e) => { e.preventDefault(); openModal(modalPrivacy, btnPrivacy); });
         if (btnTerms) btnTerms.addEventListener('click', (e) => { e.preventDefault(); openModal(modalTerms, btnTerms); });
+        if (btnQuote) btnQuote.addEventListener('click', (e) => { e.preventDefault(); openModal(modalQuote, btnQuote); });
 
-        // Event Listeners for Closing via X button
+        // Event Listeners for Closing
         closeButtons.forEach(btn => {
             btn.addEventListener('click', function() {
                 const modal = this.closest('div[role="dialog"]');
@@ -1434,7 +2019,6 @@
             });
         });
 
-        // Event Listeners for Closing via click outside (backdrop)
         backdrops.forEach(backdrop => {
             backdrop.addEventListener('click', function() {
                 const modal = this.closest('div[role="dialog"]');
@@ -1442,9 +2026,8 @@
             });
         });
 
-        // Event Listener for Closing via ESC key, and trapping Tab focus
         document.addEventListener('keydown', (e) => {
-            const openModalEl = [modalPrivacy, modalTerms].find(m => !m.classList.contains('opacity-0'));
+            const openModalEl = [modalPrivacy, modalTerms, modalQuote].find(m => !m.classList.contains('opacity-0'));
             if (!openModalEl) return;
 
             if (e.key === 'Escape') {
