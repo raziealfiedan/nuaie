@@ -36,14 +36,11 @@
     <title>Nuaie Studio | Creative Design & Marketing</title>
     <meta name="description" content="Nuaie Studio is a creative design and marketing studio offering social media management, video production, brand identity, web design, and hand-painted visual art.">
     <meta name="theme-color" content="#07090C">
-    <link rel="canonical" href="https://nuaiestudio.com">
     <meta property="og:title" content="Nuaie Studio | Creative Design & Marketing">
     <meta property="og:description" content="Smart marketing and stunning design: social media, video, branding, and web design that help your business stand out and grow.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nuaiestudio.com">
     <meta property="og:image" content="https://nuaiestudio.com/images/og-share-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nuaie Studio | Creative Design & Marketing">
     <meta name="twitter:description" content="Smart marketing and stunning design: social media, video, branding, and web design that help your business stand out and grow.">
@@ -61,8 +58,6 @@
       For production, it is highly recommended to build a purged CSS file 
       (via Vite, PostCSS, or Tailwind CLI) to minimize load times, 
       and replace this script with a standard <link rel="stylesheet">.
-      This is the single biggest performance win available for this page —
-      the CDN build compiles Tailwind in the browser on every load.
     -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     
@@ -222,14 +217,6 @@
 	    background-color: rgba(204, 255, 0, 0.05) !important;
         }
 
-        /* Fix: the little dot inside .radio-indicator previously never
-           received a checked state — Tailwind's `peer` selector can't
-           reach this deep, so we drive it with :has() like the wrapper
-           border above. */
-        .custom-radio-wrapper:has(input:checked) .radio-indicator span {
-            opacity: 1;
-        }
-
         /* Image Zoom on Hover */
         .img-zoom-hover {
             transition: transform 0.7s ease, filter 0.5s ease, opacity 0.5s ease;
@@ -384,7 +371,7 @@
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#design">Design</a>
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#art">Art</a>
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#about">About</a>
-            <a class="btn-living btn-living-sm ml-4 wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
+            <a class="btn-living btn-living-sm ml-4 wa-link" href="#">Contact Me</a>
         </div>
 
         <!-- Mobile Menu Toggle -->
@@ -395,14 +382,14 @@
 </nav>
 
 <!-- Mobile Navigation Menu Overlay -->
-<div id="mobile-menu" inert class="fixed inset-0 z-40 bg-background/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500 lg:hidden transform scale-105">
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-background/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500 lg:hidden transform scale-105">
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#social">Social Media</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#video">Video Production</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#design">Brand & Design</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#art">Visual Art</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#about">About Me</a>
     <div class="mt-8">
-        <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
+        <a class="btn-living wa-link" href="#">Contact Me</a>
     </div>
 </div>
 
@@ -428,7 +415,7 @@
                 Blending beautiful visuals with proven marketing strategies to help your business stand out and grow.
             </p>
             
-            <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
+            <a class="btn-living wa-link" href="#">Contact Me</a>
         </div>
 
         <!-- Animated Zoom Background Image -->
@@ -551,7 +538,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Consult On Strategy</a>
+                <a class="btn-living wa-link" href="#">Consult On Strategy</a>
             </div>
         </div>
     </section>
@@ -589,17 +576,6 @@
             </div>
 
             <!-- High-Performance Click-To-Play Video Gallery -->
-            <!--
-                NOTE: These 10 blocks are hand-copied. This is exactly how the
-                previous "VIDEO_ID_10" placeholder bug happened: a thumbnail
-                was wired up but the data-vid was never filled in, and it went
-                unnoticed because visually nothing looked wrong until clicked.
-                If you add/remove videos again, double-check every data-vid
-                against its thumbnail. (We considered generating this grid
-                from a JS array instead, but that would mean zero videos show
-                up for visitors with JS disabled or for search crawlers that
-                don't execute JS — worse trade-off than the duplication risk.)
-            -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
                 
                 <!-- Facade 1 -->
@@ -693,7 +669,7 @@
                 </div>
                 
                 <!-- Facade 10 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="p0XWTO16B4E">
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="VIDEO_ID_10">
                     <img src="https://i.ytimg.com/vi/p0XWTO16B4E/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
                         <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
@@ -729,7 +705,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Let's Work Together</a>
+                <a class="btn-living wa-link" href="#">Let's Work Together</a>
             </div>
         </div>
     </section>
@@ -818,7 +794,7 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>03 Physical Assets
                         </span>
                         <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Print & Signage</h3>
-                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We ensure your physical touchpoints, from menus to storefront signs, match the premium quality of your digital brand.</p>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We ensure your physical touchpoints, from menus to storefront signs—match the premium quality of your digital brand.</p>
                         <div class="pt-6 border-t border-white/10">
                             <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
                             <ul class="space-y-3">
@@ -858,7 +834,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Get Your Custom Quote</a>
+                <a class="btn-living wa-link" href="#">Get Your Custom Quote</a>
             </div>
         </div>
     </section>
@@ -1062,7 +1038,7 @@
             </div>
             
             <div class="mt-24 flex flex-col items-center reveal">
-                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">
+                <a class="btn-living wa-link" href="#">
                     Get In Touch
                 </a>
             </div>
@@ -1082,7 +1058,7 @@
                 <p class="text-on-surface-variant text-sm leading-relaxed mb-8 max-w-sm">
                     Blending beautiful visuals with proven marketing strategies to help your business stand out and grow. Proudly based in Penampang, Sabah.
                 </p>
-                <a class="btn-living btn-living-xs wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Start a Project</a>
+                <a class="btn-living btn-living-xs wa-link" href="#">Start a Project</a>
             </div>
 
             <!-- Links Explore -->
@@ -1106,7 +1082,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3 wa-link">
+                        <a href="#" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3 wa-link">
                             <span class="material-symbols-outlined text-lg" aria-hidden="true">call</span> +60 12 821 8280
                         </a>
                     </li>
@@ -1134,7 +1110,7 @@
 </footer>
 
 <!-- Interactive Web Design Quote Calculator Modal -->
-<div id="modal-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="quote-title" role="dialog" aria-modal="true">
+<div id="modal-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="quote-title" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
@@ -1622,7 +1598,7 @@
 </div>
 
 <!-- Interactive Branding Quote Calculator Modal -->
-<div id="modal-branding-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="branding-quote-title" role="dialog" aria-modal="true">
+<div id="modal-branding-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="branding-quote-title" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
@@ -1946,7 +1922,7 @@
 </div>
 
 <!-- Interactive Art Quote Calculator Modal -->
-<div id="modal-art-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="art-quote-title" role="dialog" aria-modal="true">
+<div id="modal-art-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="art-quote-title" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-5xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
@@ -2181,7 +2157,7 @@
 </div>
 
 <!-- Privacy Policy Modal -->
-<div id="modal-privacy" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="privacy-title" role="dialog" aria-modal="true">
+<div id="modal-privacy" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="privacy-title" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel-heavy rounded-2xl p-8 md:p-12 shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
@@ -2196,22 +2172,37 @@
         
         <div class="space-y-6 text-sm text-on-surface-variant font-body-md leading-relaxed">
             <p>Last updated: August 2026</p>
-            <!--
-                NOTE: This is placeholder text. Since the site's quote-calculator
-                forms collect name, email, and phone number, Malaysia's Personal
-                Data Protection Act 2010 (PDPA) applies to this business. Replace
-                this section with real policy content — covering what's
-                collected, why, how long it's kept, and how people can request
-                deletion — before launch.
-            -->
+            
             <h3 class="text-white font-bold text-base mt-8 mb-2">1. Introduction</h3>
-            <p>Welcome to Nuaie Studio. We respect your privacy and are committed to protecting your personal data...</p>
+            <p>Welcome to Nuaie Studio. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our creative, marketing, and design services.</p>
+            
+            <h3 class="text-white font-bold text-base mt-8 mb-2">2. Information We Collect</h3>
+            <p>We may collect information you provide directly to us when you communicate via WhatsApp, email, or other channels. This includes:</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Identity Data: Name, business name, and job title.</li>
+                <li>Contact Data: Email address, phone number, and social media handles.</li>
+                <li>Technical Data: IP address, browser type, and usage data via Google Analytics to help us understand how our website is being used.</li>
+            </ul>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">3. How We Use Your Information</h3>
+            <p>We use your information solely to:</p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Provide, operate, and maintain our design and marketing services.</li>
+                <li>Respond to your inquiries, quotes, and customer service requests.</li>
+                <li>Analyze website usage to improve our portfolio and user experience.</li>
+            </ul>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">4. Data Sharing and Security</h3>
+            <p>We do not sell, trade, or rent your personal information to third parties. We use standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.</p>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">5. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at razie.alfiedan@gmail.com.</p>
         </div>
     </div>
 </div>
 
 <!-- Terms of Service Modal -->
-<div id="modal-terms" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="terms-title" role="dialog" aria-modal="true">
+<div id="modal-terms" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="terms-title" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel-heavy rounded-2xl p-8 md:p-12 shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
@@ -2226,8 +2217,21 @@
         
         <div class="space-y-6 text-sm text-on-surface-variant font-body-md leading-relaxed">
             <p>Last updated: August 2026</p>
+            
             <h3 class="text-white font-bold text-base mt-8 mb-2">1. Agreement to Terms</h3>
-            <p>By accessing our website and engaging Nuaie Studio for services, you agree to be bound by these Terms of Service...</p>
+            <p>By accessing our website and engaging Nuaie Studio for services (including social media management, video production, design, and physical art), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
+            
+            <h3 class="text-white font-bold text-base mt-8 mb-2">2. Services and Deliverables</h3>
+            <p>Nuaie Studio provides creative design and marketing services as outlined in specific project quotes or retainer agreements. Timelines, deliverables, and revision rounds will be agreed upon in writing prior to project commencement.</p>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">3. Intellectual Property rights</h3>
+            <p>Upon full payment, final design assets (logos, branding, websites, videos) are licensed or transferred to the client as outlined in your specific contract. Nuaie Studio retains the right to display all completed work in our portfolio, website, and social media channels unless a Non-Disclosure Agreement (NDA) is signed prior to the project. Original physical artwork remains the intellectual property of Razie Alfiedan unless copyright is explicitly sold.</p>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">4. Payments and Refunds</h3>
+            <p>A non-refundable deposit is required to commence work. Due to the custom nature of design and marketing services, we do not offer refunds on work that has already been executed. Monthly retainers require 30 days written notice for cancellation.</p>
+
+            <h3 class="text-white font-bold text-base mt-8 mb-2">5. Governing Law</h3>
+            <p>These terms shall be governed by and construed in accordance with the laws of Malaysia, without regard to its conflict of law provisions.</p>
         </div>
     </div>
 </div>
@@ -2236,10 +2240,13 @@
     // --- 1. Global Settings ---
     const WA_NUMBER = "60128218280";
     const DEFAULT_WA_MSG = "Hi Nuaie Studio, I'd like to find out more about your services.";
-    // NOTE: `.wa-link` hrefs are now hardcoded directly in the HTML (progressive
-    // enhancement — they work even if this script fails to load or errors out).
-    // WA_NUMBER/DEFAULT_WA_MSG are kept here because the quote-calculator
-    // submit handlers below still build their own WhatsApp messages dynamically.
+
+    // Apply WhatsApp Link globally to `.wa-link` classes
+    document.querySelectorAll('.wa-link').forEach(link => {
+        link.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(DEFAULT_WA_MSG)}`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+    });
 
     // --- 2. Scroll Interaction ---
     window.addEventListener('scroll', () => {
@@ -2262,14 +2269,12 @@
     function toggleMenu() {
         menuOpen = !menuOpen;
         if (menuOpen) {
-            mobileMenu.inert = false;
             mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
             mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
             mobileMenuBtn.querySelector('span').innerText = 'close';
             mobileMenuBtn.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
         } else {
-            mobileMenu.inert = true;
             mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
             mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
             mobileMenuBtn.querySelector('span').innerText = 'menu';
@@ -2419,8 +2424,6 @@
     
     function openModal(modal, trigger) {
         lastFocusedElement = trigger || document.activeElement;
-        modal.inert = false;
-        modal.removeAttribute('aria-hidden');
         modal.classList.remove('opacity-0', 'pointer-events-none');
         modal.querySelector('.modal-content').classList.remove('scale-95');
         modal.querySelector('.modal-content').classList.add('scale-100');
@@ -2430,8 +2433,6 @@
     }
 
     function closeModal(modal) {
-        modal.inert = true;
-        modal.setAttribute('aria-hidden', 'true');
         modal.classList.add('opacity-0', 'pointer-events-none');
         modal.querySelector('.modal-content').classList.add('scale-95');
         modal.querySelector('.modal-content').classList.remove('scale-100');
@@ -2635,9 +2636,7 @@
                 { id: 'calc_extra_pages', rate: 200 },
                 { id: 'calc_extra_products', rate: 20 }
             ],
-            radios: ['calc_aesthetics', 'calc_content'],
-            initialId: 'calc_total_initial',
-            recurringId: 'calc_total_annual'
+            radios: ['calc_aesthetics', 'calc_content']
         });
 
         // Initialize Branding Calculator
@@ -2649,12 +2648,10 @@
             recurringLabel: 'Monthly Retainer',
             baseInitial: 0,
             baseRecurring: 0,
-            radios: ['calc_core_identity', 'calc_guidelines'],
-            initialId: 'brand_calc_total_initial',
-            recurringId: 'brand_calc_total_monthly'
+            radios: ['calc_core_identity', 'calc_guidelines']
         });
         
-        // Initialize the Art Calculator
+        // Initialize the new Art Calculator
         initArtCalculator();
 
         // Dynamic footer year
