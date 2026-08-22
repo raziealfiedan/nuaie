@@ -3,31 +3,69 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLKLD6M66L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLKLD6M66L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JLKLD6M66L');
+    </script>
+    
+    <!-- JSON-LD Structured Data for Local Business SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Nuaie Studio",
+      "image": "https://nuaiestudio.com/images/og-share-image.jpg",
+      "description": "Creative design and marketing studio offering social media management, video production, brand identity, web design, and hand-painted visual art.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Penampang",
+        "addressRegion": "Sabah",
+        "addressCountry": "MY"
+      },
+      "telephone": "+60128218280",
+      "email": "razie.alfiedan@gmail.com",
+      "url": "https://nuaiestudio.com"
+    }
+    </script>
 
-  gtag('config', 'G-JLKLD6M66L');
-</script>
     <title>Nuaie Studio | Creative Design & Marketing</title>
     <meta name="description" content="Nuaie Studio is a creative design and marketing studio offering social media management, video production, brand identity, web design, and hand-painted visual art.">
     <meta name="theme-color" content="#07090C">
+    <link rel="canonical" href="https://nuaiestudio.com">
     <meta property="og:title" content="Nuaie Studio | Creative Design & Marketing">
     <meta property="og:description" content="Smart marketing and stunning design: social media, video, branding, and web design that help your business stand out and grow.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/og-share-image.jpg">
+    <meta property="og:url" content="https://nuaiestudio.com">
+    <meta property="og:image" content="https://nuaiestudio.com/images/og-share-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nuaie Studio | Creative Design & Marketing">
     <meta name="twitter:description" content="Smart marketing and stunning design: social media, video, branding, and web design that help your business stand out and grow.">
-    <meta name="twitter:image" content="images/og-share-image.jpg">
+    <meta name="twitter:image" content="https://nuaiestudio.com/images/og-share-image.jpg">
+    
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2307090C'/%3E%3Ctext x='50' y='68' font-family='sans-serif' font-size='58' font-weight='800' fill='%23CCFF00' text-anchor='middle'%3En.%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <!-- 
+      NOTE: Tailwind CDN is used here for rapid development. 
+      For production, it is highly recommended to build a purged CSS file 
+      (via Vite, PostCSS, or Tailwind CLI) to minimize load times, 
+      and replace this script with a standard <link rel="stylesheet">.
+      This is the single biggest performance win available for this page —
+      the CDN build compiles Tailwind in the browser on every load.
+    -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -150,6 +188,10 @@
             overflow: hidden;
         }
         
+        /* Dedicated sizing classes to replace inline !important overrides */
+        .btn-living-sm { padding: 12px 32px; font-size: 13px; }
+        .btn-living-xs { padding: 10px 24px; font-size: 12px; }
+        
         .btn-living::before {
             content: '';
             position: absolute;
@@ -174,9 +216,18 @@
         }
 
         /* Form Customizations */
-        .custom-radio:checked + div, .custom-checkbox:checked + div {
-            border-color: #CCFF00;
-            background-color: rgba(204, 255, 0, 0.05);
+	.custom-radio-wrapper:has(input:checked), 
+	.custom-checkbox-wrapper:has(input:checked) {
+	    border-color: #CCFF00 !important;
+	    background-color: rgba(204, 255, 0, 0.05) !important;
+        }
+
+        /* Fix: the little dot inside .radio-indicator previously never
+           received a checked state — Tailwind's `peer` selector can't
+           reach this deep, so we drive it with :has() like the wrapper
+           border above. */
+        .custom-radio-wrapper:has(input:checked) .radio-indicator span {
+            opacity: 1;
         }
 
         /* Image Zoom on Hover */
@@ -333,7 +384,7 @@
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#design">Design</a>
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#art">Art</a>
             <a class="text-on-surface-variant text-sm font-medium hover:text-white transition-colors" href="#about">About</a>
-            <a class="btn-living !py-3 !px-8 !text-[13px] ml-4" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
+            <a class="btn-living btn-living-sm ml-4 wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
         </div>
 
         <!-- Mobile Menu Toggle -->
@@ -344,14 +395,14 @@
 </nav>
 
 <!-- Mobile Navigation Menu Overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-background/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500 lg:hidden transform scale-105">
+<div id="mobile-menu" inert class="fixed inset-0 z-40 bg-background/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-500 lg:hidden transform scale-105">
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#social">Social Media</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#video">Video Production</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#design">Brand & Design</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#art">Visual Art</a>
     <a class="text-white font-display-lg font-semibold text-3xl hover:text-primary-container transition-colors mobile-link" href="#about">About Me</a>
     <div class="mt-8">
-        <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
+        <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
     </div>
 </div>
 
@@ -377,13 +428,11 @@
                 Blending beautiful visuals with proven marketing strategies to help your business stand out and grow.
             </p>
             
-            <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">
-                Contact Me
-            </a>
+            <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Contact Me</a>
         </div>
 
         <!-- Animated Zoom Background Image -->
-        <div class="absolute inset-0 z-[-2] opacity-10 mix-blend-overlay w-full h-full object-cover">
+        <div class="absolute inset-0 z-[-2] opacity-10 mix-blend-overlay w-full h-full">
             <div class="w-full h-full bg-cover bg-center grayscale animate-slow-zoom origin-center" style="background-image: url('images/hero-background-abstract.jpg')"></div>
         </div>
     </header>
@@ -486,16 +535,14 @@
                     <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Campaigns & Content</h3>
                 </div>
 
-                <!-- Slider Container -->
                 <div class="gallery-slider" id="slider-social">
                     <div class="slider-track">
-                        <div class="slider-item"><img src="images/social01.jpg" alt="Social Post 1" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/social02.jpg" alt="Social Post 2" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/social03.jpg" alt="Social Post 3" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/social01.jpg" alt="Social media campaign post for local business" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/social02.jpg" alt="Creative promotional graphic design" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/social03.jpg" alt="Instagram and Facebook content creation" loading="lazy"></div>
                     </div>
                 </div>
                 
-                <!-- Controls -->
                 <div class="flex justify-center gap-4 mt-8">
                     <button type="button" class="slider-nav-btn" id="slider-social-prev" aria-label="Previous social media photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
                     <button type="button" class="slider-nav-btn" id="slider-social-toggle" aria-label="Pause automatic slideshow"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
@@ -504,7 +551,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Consult On Strategy</a>
+                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Consult On Strategy</a>
             </div>
         </div>
     </section>
@@ -541,52 +588,120 @@
                 </div>
             </div>
 
-            <!-- Embedded Video Gallery -->
+            <!-- High-Performance Click-To-Play Video Gallery -->
+            <!--
+                NOTE: These 10 blocks are hand-copied. This is exactly how the
+                previous "VIDEO_ID_10" placeholder bug happened: a thumbnail
+                was wired up but the data-vid was never filled in, and it went
+                unnoticed because visually nothing looked wrong until clicked.
+                If you add/remove videos again, double-check every data-vid
+                against its thumbnail. (We considered generating this grid
+                from a JS array instead, but that would mean zero videos show
+                up for visitors with JS disabled or for search crawlers that
+                don't execute JS — worse trade-off than the duplication risk.)
+            -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-                <!-- Newly Added YouTube 1 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/FvxXonzDB-Q?si=6q2EiK3kgpBuNec2" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 1 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="FvxXonzDB-Q">
+                    <img src="https://i.ytimg.com/vi/FvxXonzDB-Q/hqdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Newly Added YouTube 2 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/Nmg-HkXPN0I?si=6eO-011NZ4XffOdn" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 2 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2 yt-facade cursor-pointer group" data-vid="Nmg-HkXPN0I">
+                    <img src="https://i.ytimg.com/vi/Nmg-HkXPN0I/hqdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Newly Added YouTube 3 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/8MJJ4ekVyac?si=Pux9d-Tn1VR84tSJ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 3 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3 yt-facade cursor-pointer group" data-vid="8MJJ4ekVyac">
+                    <img src="https://i.ytimg.com/vi/8MJJ4ekVyac/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Newly Added YouTube 4 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/e0PrebKEeew?si=pGx0qo-ZxjN5L5OE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 4 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="e0PrebKEeew">
+                    <img src="https://i.ytimg.com/vi/e0PrebKEeew/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 1 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/89hLNFWY36I?si=6ka3eqWvFvFp8eCV" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 5 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2 yt-facade cursor-pointer group" data-vid="89hLNFWY36I">
+                    <img src="https://i.ytimg.com/vi/89hLNFWY36I/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 2 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/gjH6wnZIplE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 6 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3 yt-facade cursor-pointer group" data-vid="gjH6wnZIplE">
+                    <img src="https://i.ytimg.com/vi/gjH6wnZIplE/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 3 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/LE8iHmGSfeE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 7 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="LE8iHmGSfeE">
+                    <img src="https://i.ytimg.com/vi/LE8iHmGSfeE/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 4 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/uEEn_y4CJ28" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 8 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2 yt-facade cursor-pointer group" data-vid="uEEn_y4CJ28">
+                    <img src="https://i.ytimg.com/vi/uEEn_y4CJ28/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 5 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/5TQ_V1EDuR8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 9 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3 yt-facade cursor-pointer group" data-vid="5TQ_V1EDuR8">
+                    <img src="https://i.ytimg.com/vi/5TQ_V1EDuR8/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Original YouTube 6 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.youtube.com/embed/p0XWTO16B4E?si=QhWog2ONMa7bd3M_" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <!-- Facade 10 -->
+                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="p0XWTO16B4E">
+                    <img src="https://i.ytimg.com/vi/p0XWTO16B4E/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Instagram (Uniform Sizing) -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-2">
-                    <iframe loading="lazy" class="absolute inset-0 w-full h-full border-0" src="https://www.instagram.com/reel/DJnw_vozlix/embed/" title="Instagram Reel" allowtransparency="true" allowfullscreen="true" scrolling="no"></iframe>
-                </div>
+
             </div>
 
             <!-- Video BTS Gallery Slider -->
@@ -596,18 +711,16 @@
                     <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Behind The Scenes</h3>
                 </div>
 
-                <!-- Slider Container -->
                 <div class="gallery-slider" id="slider-video">
                     <div class="slider-track">
-                        <div class="slider-item"><img src="images/bts-onset-01.jpg" alt="BTS 1" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/bts-onset-02.jpg" alt="BTS 2" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/bts-onset-03.jpg" alt="BTS 3" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/bts-onset-04.jpg" alt="BTS 4" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/bts-onset-05.jpg" alt="BTS 5" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-01.jpg" alt="Behind the scenes video production equipment setup" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-02.jpg" alt="Filming a commercial scene on location" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-03.jpg" alt="Creative director checking framing on monitor" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-04.jpg" alt="Professional lighting and camera gear" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/bts-onset-05.jpg" alt="Video production crew organizing a shoot" loading="lazy"></div>
                     </div>
                 </div>
                 
-                <!-- Controls -->
                 <div class="flex justify-center gap-4 mt-8">
                     <button type="button" class="slider-nav-btn" id="slider-video-prev" aria-label="Previous behind-the-scenes photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
                     <button type="button" class="slider-nav-btn" id="slider-video-toggle" aria-label="Pause automatic slideshow"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
@@ -616,7 +729,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Let's Work Together</a>
+                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Let's Work Together</a>
             </div>
         </div>
     </section>
@@ -657,8 +770,7 @@
                             </ul>
                         </div>
                         
-                        <!-- NEW Get Quote Button for Branding -->
-                        <button type="button" id="open-branding-quote-modal" class="mt-auto w-full py-3.5 px-6 rounded-xl bg-primary-container/10 border border-primary-container/30 text-primary-container font-bold text-sm hover:bg-primary-container hover:text-background transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden">
+                        <button type="button" data-modal-target="modal-branding-quote" class="mt-auto w-full py-3.5 px-6 rounded-xl bg-primary-container/10 border border-primary-container/30 text-primary-container font-bold text-sm hover:bg-primary-container hover:text-background transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden">
                             <span class="relative z-10 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">calculate</span>
                                 Get a Branding Quote
@@ -687,8 +799,7 @@
                             </ul>
                         </div>
                         
-                        <!-- Get Quote Button for Web Design -->
-                        <button type="button" id="open-quote-modal" class="mt-auto w-full py-3.5 px-6 rounded-xl bg-secondary-container/10 border border-secondary-container/30 text-secondary-container font-bold text-sm hover:bg-secondary-container hover:text-background transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden">
+                        <button type="button" data-modal-target="modal-quote" class="mt-auto w-full py-3.5 px-6 rounded-xl bg-secondary-container/10 border border-secondary-container/30 text-secondary-container font-bold text-sm hover:bg-secondary-container hover:text-background transition-all duration-300 flex items-center justify-center gap-2 group/btn relative overflow-hidden">
                             <span class="relative z-10 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[18px]">calculate</span>
                                 Get a Web Design Quote
@@ -707,7 +818,7 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>03 Physical Assets
                         </span>
                         <h3 class="font-display-lg text-2xl font-bold text-white mb-4">Print & Signage</h3>
-                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We ensure your physical touchpoints—from menus to storefront signs—match the premium quality of your digital brand.</p>
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">We ensure your physical touchpoints, from menus to storefront signs, match the premium quality of your digital brand.</p>
                         <div class="pt-6 border-t border-white/10">
                             <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Deliverables:</h4>
                             <ul class="space-y-3">
@@ -727,20 +838,18 @@
                     <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Previous Works</h3>
                 </div>
 
-                <!-- Slider Container -->
                 <div class="gallery-slider" id="slider-design">
                     <div class="slider-track">
-                        <div class="slider-item"><img src="images/design01.jpg" alt="Design 1" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design02.jpg" alt="Design 2" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design03.jpg" alt="Design 3" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design04.jpg" alt="Design 4" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design05.jpg" alt="Design 5" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design06.jpg" alt="Design 6" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/design07.jpg" alt="Design 7" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design01.jpg" alt="Brand identity and logo design mockup" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design02.jpg" alt="Website design user interface layout" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design03.jpg" alt="Print brochure and physical collateral" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design04.jpg" alt="Company packaging design concepts" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design05.jpg" alt="Typographic brand guidelines" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design06.jpg" alt="Event signage and large format printing" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/design07.jpg" alt="Digital advertising visual designs" loading="lazy"></div>
                     </div>
                 </div>
                 
-                <!-- Controls -->
                 <div class="flex justify-center gap-4 mt-8">
                     <button type="button" class="slider-nav-btn" id="slider-design-prev" aria-label="Previous design work photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
                     <button type="button" class="slider-nav-btn" id="slider-design-toggle" aria-label="Pause automatic slideshow"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
@@ -749,7 +858,7 @@
             </div>
             
             <div class="flex justify-center mt-16 reveal">
-                <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Get Your Custom Quote</a>
+                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Get Your Custom Quote</a>
             </div>
         </div>
     </section>
@@ -772,7 +881,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
                 <!-- Art Piece 1 -->
                 <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-1">
-                    <img alt="Portrait Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/portrait1.jpg">
+                    <img alt="Custom ink and watercolor portrait painting" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/portrait1.jpg">
                     <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                         <p class="text-primary-container font-label-sm text-[10px] uppercase tracking-widest mb-1">Watercolor & Ink</p>
                         <h4 class="font-display-lg text-white font-bold text-lg mb-3">Portrait Artworks</h4>
@@ -784,7 +893,7 @@
                 </div>
                 <!-- Art Piece 2 -->
                 <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-2">
-                    <img alt="Landscape Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/landscape01.jpg">
+                    <img alt="Mixed media landscape art piece" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/landscape01.jpg">
                     <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                         <p class="text-secondary-container font-label-sm text-[10px] uppercase tracking-widest mb-1">Various Media</p>
                         <h4 class="font-display-lg text-white font-bold text-lg mb-3">Landscape Artworks</h4>
@@ -796,7 +905,7 @@
                 </div>
                 <!-- Art Piece 3 -->
                 <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel reveal reveal-delay-3">
-                    <img alt="Custom Artworks" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/custom01.jpg">
+                    <img alt="Custom concept artwork exploration" loading="lazy" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 img-zoom-hover" src="images/custom01.jpg">
                     <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                         <p class="text-tertiary-fixed-dim font-label-sm text-[10px] uppercase tracking-widest mb-1">Concept Exploration</p>
                         <h4 class="font-display-lg text-white font-bold text-lg mb-3">Custom Pieces</h4>
@@ -806,12 +915,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Art Piece 4 (CTA) -->
+                <!-- Art Piece 4 (CTA with Modal Trigger) -->
                 <div class="group relative aspect-[4/5] overflow-hidden rounded-2xl glass-panel flex flex-col justify-center items-center text-center p-6 bg-surface-container-high/30 border-2 border-transparent hover:border-primary-container/40 transition-all duration-300 reveal reveal-delay-3 shadow-[0_0_20px_rgba(204,255,0,0.05)] hover:shadow-[0_0_30px_rgba(204,255,0,0.15)]">
                     <span class="material-symbols-outlined text-4xl text-primary-container mb-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500" aria-hidden="true">palette</span>
                     <h4 class="font-display-lg text-white font-bold text-lg mb-2">Want Custom Art?</h4>
                     <p class="text-xs text-on-surface-variant mb-6 px-2">I accept a few requests for custom paintings depending on availability. Perfect for unique gifts.</p>
-                    <a class="btn-living !py-2.5 !px-6 !text-xs" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Inquire About Art</a>
+                    <button type="button" data-modal-target="modal-art-quote" class="btn-living btn-living-xs">Get an Art Quote</button>
                 </div>
             </div>
 
@@ -822,20 +931,18 @@
                     <h3 class="font-display-lg text-3xl font-bold text-white mb-6">Art Portfolio</h3>
                 </div>
 
-                <!-- Slider Container -->
                 <div class="gallery-slider" id="slider-art">
                     <div class="slider-track">
-                        <div class="slider-item"><img src="images/artwork01.jpg" alt="Art 1" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork02.jpg" alt="Art 2" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork03.jpg" alt="Art 3" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork04.jpg" alt="Art 4" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork05.jpg" alt="Art 5" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork06.jpg" alt="Art 6" loading="lazy"></div>
-                        <div class="slider-item"><img src="images/artwork07.jpg" alt="Art 7" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork01.jpg" alt="Hand-painted watercolor visual art piece" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork02.jpg" alt="Detailed ink sketching and painting" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork03.jpg" alt="Custom commissioned canvas artwork" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork04.jpg" alt="Mixed media abstract composition" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork05.jpg" alt="Portrait illustration in traditional media" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork06.jpg" alt="Nature inspired landscape painting" loading="lazy"></div>
+                        <div class="slider-item"><img src="images/artwork07.jpg" alt="Stylized physical art display" loading="lazy"></div>
                     </div>
                 </div>
                 
-                <!-- Controls -->
                 <div class="flex justify-center gap-4 mt-8">
                     <button type="button" class="slider-nav-btn" id="slider-art-prev" aria-label="Previous art photo"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
                     <button type="button" class="slider-nav-btn" id="slider-art-toggle" aria-label="Pause automatic slideshow"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
@@ -861,7 +968,7 @@
                 <div class="lg:col-span-5 relative reveal">
                     <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden glass-panel group shadow-2xl">
                         <div class="glow-secondary -left-20 -top-20 opacity-40"></div>
-                        <img alt="Razie Alfiedan" loading="lazy" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="images/razie-alfiedan-portrait.jpg">
+                        <img alt="Razie Alfiedan - Creative Director for Nuaie Studio" loading="lazy" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="images/razie-alfiedan-portrait.jpg">
                         
                         <!-- Floating Badge -->
                         <div class="absolute bottom-6 left-6 right-6 glass-panel-heavy p-5 rounded-xl flex items-center justify-between transform transition-transform duration-500 group-hover:translate-y-[-5px]">
@@ -955,7 +1062,7 @@
             </div>
             
             <div class="mt-24 flex flex-col items-center reveal">
-                <a class="btn-living" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">
+                <a class="btn-living wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">
                     Get In Touch
                 </a>
             </div>
@@ -963,7 +1070,6 @@
     </section>
 </main>
 
-<!-- Beautiful Redesigned Footer -->
 <footer class="bg-surface-container-low border-t border-outline-variant/30 relative z-10 pt-24 pb-12">
     <div class="max-w-container-max mx-auto px-6 md:px-12">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
@@ -976,7 +1082,7 @@
                 <p class="text-on-surface-variant text-sm leading-relaxed mb-8 max-w-sm">
                     Blending beautiful visuals with proven marketing strategies to help your business stand out and grow. Proudly based in Penampang, Sabah.
                 </p>
-                <a class="btn-living !py-2.5 !px-6 !text-xs" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Start a Project</a>
+                <a class="btn-living btn-living-xs wa-link" href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer">Start a Project</a>
             </div>
 
             <!-- Links Explore -->
@@ -1000,7 +1106,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3">
+                        <a href="https://wa.me/60128218280?text=Hi%20Nuaie%20Studio%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="text-sm text-on-surface-variant hover:text-primary-container transition-colors flex items-center gap-3 wa-link">
                             <span class="material-symbols-outlined text-lg" aria-hidden="true">call</span> +60 12 821 8280
                         </a>
                     </li>
@@ -1019,22 +1125,21 @@
                 &copy; <span id="current-year">2026</span> Nuaie Studio. All rights reserved.
             </p>
             <div class="flex gap-6">
-                <button type="button" id="open-privacy" class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest cursor-pointer text-left">Privacy Policy</button>
-                <button type="button" id="open-terms" class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest cursor-pointer text-left">Terms of Service</button>
+                <!-- Generalized Data Targets -->
+                <button type="button" data-modal-target="modal-privacy" class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest cursor-pointer text-left">Privacy Policy</button>
+                <button type="button" data-modal-target="modal-terms" class="font-label-sm text-[10px] text-on-surface-variant hover:text-white transition-colors uppercase tracking-widest cursor-pointer text-left">Terms of Service</button>
             </div>
         </div>
     </div>
 </footer>
 
 <!-- Interactive Web Design Quote Calculator Modal -->
-<div id="modal-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="quote-title" role="dialog" aria-modal="true">
-    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop"></div>
+<div id="modal-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="quote-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
-        
-        <!-- Close button: simple sticky bar instead of float+sticky, so it can't misbehave across browsers -->
         <div class="sticky top-0 z-[60] flex justify-end p-4">
-            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator">
+            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator" data-close-modal>
                 <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
             </button>
         </div>
@@ -1053,10 +1158,8 @@
                 </div>
             </div>
 
-            <!-- Changed Form layout to flex column on mobile, row on desktop -->
             <form id="quote-calculator-form" class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
                 
-                <!-- LEFT COLUMN: Selections -->
                 <div class="flex-1 space-y-12 w-full">
                     <!-- Section 2: Primary Platform Type -->
                     <section>
@@ -1123,21 +1226,19 @@
                             <p class="text-sm text-on-surface-variant mb-6">The essential building blocks of your digital presence.</p>
                             
                             <div class="space-y-4">
-                                <!-- Standard Base (Locked) -->
                                 <div class="p-5 rounded-xl border border-primary-container/30 bg-primary-container/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div>
                                         <span class="flex items-center gap-2 font-bold text-white mb-1">
                                             <span class="material-symbols-outlined text-primary-container text-[18px]" aria-hidden="true">lock</span>
                                             Standard Web Architecture (Required)
                                         </span>
-                                        <span class="text-xs text-on-surface-variant block leading-relaxed">Includes up to 8 core pages, mobile-responsive layouts, initial content integration, standard contact forms, and 2 rounds of design revisions. (Standard legal pages like Privacy Policy are included for free).</span>
+                                        <span class="text-xs text-on-surface-variant block leading-relaxed">Includes up to 8 core pages, mobile-responsive layouts, initial content integration, standard contact forms, and 2 rounds of design revisions.</span>
                                     </div>
                                     <div class="font-label-sm text-primary-container font-bold whitespace-nowrap text-right text-lg">
                                         RM 3,200
                                     </div>
                                 </div>
 
-                                <!-- Add-ons with Inputs -->
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="p-5 rounded-xl border border-white/10 bg-surface/40 flex flex-col justify-between">
                                         <div class="mb-4">
@@ -1156,7 +1257,7 @@
                                     <div class="p-5 rounded-xl border border-white/10 bg-surface/40 flex flex-col justify-between">
                                         <div class="mb-4">
                                             <label for="calc_extra_products" class="font-bold text-white block mb-1 cursor-pointer">Digital Inventory Upload</label>
-                                            <span id="calc_extra_products_help" class="text-xs text-on-surface-variant leading-relaxed">20 products included. Extra items loaded at RM20 each (client must provide imagery and descriptions).</span>
+                                            <span id="calc_extra_products_help" class="text-xs text-on-surface-variant leading-relaxed">20 products included. Extra items loaded at RM20 each.</span>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto">
                                             <div class="flex items-center gap-2">
@@ -1181,11 +1282,10 @@
                             <p class="text-sm text-on-surface-variant mb-6">How your site looks and feels.</p>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- Radios -->
                                 <div class="space-y-3">
                                     <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
                                         <div class="flex items-center gap-3">
-                                            <input type="radio" name="calc_aesthetics" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background shrink-0" checked>
+                                            <input type="radio" name="calc_aesthetics" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background shrink-0 calc-input" checked>
                                             <div>
                                                 <span class="block text-sm text-white font-bold">In-House Creative Direction</span>
                                                 <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We craft a modern layout perfectly suited to your industry standards.</span>
@@ -1199,21 +1299,20 @@
                                             <input type="radio" name="calc_aesthetics" value="400" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                             <div>
                                                 <span class="block text-sm text-white font-bold">Strict Brand Adherence</span>
-                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We build the site strictly matching your pre-existing brand book, custom typography, and exact color palettes.</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We build the site strictly matching your pre-existing brand book.</span>
                                             </div>
                                         </div>
                                         <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 400</span>
                                     </label>
                                 </div>
                                 
-                                <!-- Checkboxes -->
                                 <div class="space-y-3">
                                     <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                         <div class="flex items-center gap-3">
                                             <input type="checkbox" name="addon_logo_concept" value="450" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                             <div>
                                                 <span class="block text-sm text-white font-bold">Custom Logo Concepting</span>
-                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Need a logo? We'll design a professional, scalable graphic identity for your business.</span>
+                                                <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Need a logo? We'll design a professional, scalable graphic identity.</span>
                                             </div>
                                         </div>
                                         <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 450</span>
@@ -1249,7 +1348,7 @@
                                         <input type="radio" name="calc_content" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0" checked>
                                         <div>
                                             <span class="block text-sm text-white font-bold">Managed Content Plan</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Send us your text or image updates, and we handle the technical execution (covered under your annual maintenance plan).</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Send us your text updates, and we handle the technical execution.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-primary-container ml-4 whitespace-nowrap">Included</span>
@@ -1260,7 +1359,7 @@
                                         <input type="radio" name="calc_content" value="600" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Basic Article Editor</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We grant you specific backend access allowing you to independently write, edit, and publish your own blog posts or news updates.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We grant backend access for you to independently write/publish blogs.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 600</span>
@@ -1271,7 +1370,7 @@
                                         <input type="radio" name="calc_content" value="1200" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Complete Administrative Freedom</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Full platform handover. You get total control to modify text, swap imagery, and alter layouts whenever you want.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Full platform handover. You get total control to modify text and layouts.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 1,200</span>
@@ -1317,7 +1416,7 @@
                                         <input type="checkbox" name="addon_bilingual" value="350" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Bilingual Site Toggle</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Framework setup to display your site in a secondary language.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Framework setup to display a secondary language.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 350</span>
@@ -1356,10 +1455,9 @@
                                     <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 300</span>
                                 </label>
 
-                                <!-- Annual Addon -->
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-secondary-container/50 custom-checkbox-wrapper md:col-span-2 bg-gradient-to-r from-surface/40 to-secondary-container/5">
                                     <div class="flex items-start gap-3">
-                                        <input type="checkbox" name="addon_corporate_email" value="200" class="calc_addon_annual custom-checkbox w-4 h-4 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
+                                        <input type="checkbox" name="addon_corporate_email" value="200" class="calc_addon_recurring custom-checkbox w-4 h-4 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Professional Corporate Email</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Setup of a custom business address (e.g., hello@yourdomain.com).</span>
@@ -1387,7 +1485,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 800</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Foundational SEO Structuring</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Optimization of meta descriptions, page titles, and backend architecture so search engines can easily index your site.</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Optimization of meta descriptions, page titles, and backend architecture.</span>
                                 </label>
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
@@ -1396,7 +1494,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 600</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Regional Search Boost</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Targeted optimization focused on drawing local foot traffic and improving map-based search results.</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Targeted optimization focused on drawing local foot traffic and maps.</span>
                                 </label>
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
@@ -1405,7 +1503,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 250</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Google Business Profile</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Professional setup and optimization of your digital storefront card on Google Search.</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Professional setup and optimization of your digital storefront card.</span>
                                 </label>
                             </div>
                         </fieldset>
@@ -1425,7 +1523,7 @@
                                     <span class="material-symbols-outlined text-secondary-container text-[18px]" aria-hidden="true">lock</span>
                                     Annual Hosting & Platform Management (Required)
                                 </span>
-                                <span class="text-sm text-on-surface-variant block leading-relaxed">Billed upfront with your initial build, then renewed annually. This vital subscription covers premium web hosting, yearly domain name renewal, SSL security encryption, daily system backups, vital software updates, and ongoing technical support.</span>
+                                <span class="text-sm text-on-surface-variant block leading-relaxed">Billed upfront with your initial build, then renewed annually. Covers premium hosting, domains, SSL, backups, updates, and tech support.</span>
                             </div>
                             <div class="font-label-sm text-secondary-container font-bold whitespace-nowrap text-xl text-right">
                                 RM 850 <span class="text-sm text-on-surface-variant font-body-md">/ yr</span>
@@ -1471,7 +1569,6 @@
                 <!-- RIGHT COLUMN: Sticky Total Display & Form Submission -->
                 <div class="w-full lg:w-[380px] shrink-0 lg:sticky lg:top-4 bg-surface/90 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl z-20">
                     
-                    <!-- Vertical Totals -->
                     <div class="flex flex-col gap-6 mb-8 pb-8 border-b border-white/10">
                         <div>
                             <p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-label-sm mb-2">Estimated Initial Investment</p>
@@ -1488,19 +1585,18 @@
                         </div>
                     </div>
 
-                    <!-- Contact Fields stacked for narrow sidebar -->
                     <div class="space-y-5 mb-8">
                         <div>
-                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_name">Name</label>
-                            <input type="text" id="calc_name" name="name" autocomplete="name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="web_calc_name">Name</label>
+                            <input type="text" id="web_calc_name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_email">Email Address</label>
-                            <input type="email" id="calc_email" name="email" autocomplete="email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="web_calc_email">Email Address</label>
+                            <input type="email" id="web_calc_email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="calc_phone">Phone / WhatsApp</label>
-                            <input type="tel" id="calc_phone" name="phone" autocomplete="tel" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="web_calc_extra">Phone / WhatsApp</label>
+                            <input type="tel" id="web_calc_extra" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                     </div>
 
@@ -1525,15 +1621,13 @@
     </div>
 </div>
 
-<!-- NEW: Interactive Branding Quote Calculator Modal -->
-<div id="modal-branding-quote" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="branding-quote-title" role="dialog" aria-modal="true">
-    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop"></div>
+<!-- Interactive Branding Quote Calculator Modal -->
+<div id="modal-branding-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="branding-quote-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
     <div class="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
-        
-        <!-- Close button -->
         <div class="sticky top-0 z-[60] flex justify-end p-4">
-            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator">
+            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator" data-close-modal>
                 <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
             </button>
         </div>
@@ -1542,21 +1636,19 @@
             <div class="mb-10 border-b border-white/10 pb-8">
                 <h2 id="branding-quote-title" class="font-display-lg text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Build Your Custom Branding Estimate</h2>
                 <p class="text-on-surface-variant text-base leading-relaxed mb-4 max-w-3xl">
-                    Select the design and branding services that align with your business goals to generate an instant, transparent price projection. This covers your initial design investment as well as optional ongoing creative support.
+                    Select the design and branding services that align with your business goals to generate an instant, transparent price projection.
                 </p>
                 <div class="p-4 rounded-lg bg-surface border border-outline flex gap-3 items-start max-w-3xl">
                     <span class="material-symbols-outlined text-primary-container mt-0.5 text-xl" aria-hidden="true">info</span>
                     <p class="text-xs text-on-surface-variant">
-                        <strong class="text-white font-medium">Note:</strong> This tool provides a preliminary calculation, not a binding contract. Final project costs are determined by exact scope and revisions. Submit your selections below, and we will reach out with a finalized proposal for Nuaie.
+                        <strong class="text-white font-medium">Note:</strong> This tool provides a preliminary calculation, not a binding contract. Submit your selections below, and we will reach out with a finalized proposal for Nuaie.
                     </p>
                 </div>
             </div>
 
             <form id="branding-quote-calculator-form" class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
                 
-                <!-- LEFT COLUMN: Selections -->
                 <div class="flex-1 space-y-12 w-full">
-                    
                     <!-- Section 1: Core Brand Identity -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
@@ -1626,7 +1718,7 @@
                                         <input type="radio" name="calc_guidelines" value="850" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Comprehensive Brand Book</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">A 15+ page PDF detailing logo usage rules, tone of voice, imagery direction, and dos/don'ts.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">A 15+ page PDF detailing rules, tone of voice, imagery direction.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 850</span>
@@ -1637,7 +1729,7 @@
                                         <input type="checkbox" name="addon_naming" value="1200" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Brand Naming & Story</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We develop your company name, tagline, and core brand narrative from scratch.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We develop your company name, tagline, and core brand narrative.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-4 whitespace-nowrap">+ RM 1,200</span>
@@ -1672,7 +1764,7 @@
                                         <input type="checkbox" name="addon_pitch_deck" value="800" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Pitch Deck Template</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">10-15 slide master template in PowerPoint or Keynote.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">10-15 slide master template.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 800</span>
@@ -1683,7 +1775,7 @@
                                         <input type="checkbox" name="addon_brochure" value="1200" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Company Profile / Brochure</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Multi-page layout design (up to 8 pages) for print or PDF.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Multi-page layout design (up to 8 pages).</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 1,200</span>
@@ -1694,7 +1786,7 @@
                                         <input type="checkbox" name="addon_packaging" value="1500" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Product Packaging</span>
-                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Custom box, label, or bag design for one core product line.</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Custom box, label, or bag design.</span>
                                         </div>
                                     </div>
                                     <span class="text-xs font-label-sm text-white ml-2 whitespace-nowrap">+ RM 1,500</span>
@@ -1719,7 +1811,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 650</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Social Media Kit</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Profile avatars, cover banners, and 6 editable post templates (e.g., Canva/Figma).</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Profile avatars, cover banners, and 6 editable templates.</span>
                                 </label>
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
@@ -1728,7 +1820,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 450</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Email Newsletter Design</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Custom branded template for Mailchimp or similar marketing platforms.</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Custom branded template for Mailchimp or similar platforms.</span>
                                 </label>
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
@@ -1737,7 +1829,7 @@
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 500</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Digital Ad Campaign</span>
-                                    <span class="block text-xs text-on-surface-variant leading-relaxed">A set of static graphics optimized for Meta/Google ad placements (up to 3 sizes).</span>
+                                    <span class="block text-xs text-on-surface-variant leading-relaxed">Static graphics optimized for Meta/Google ads.</span>
                                 </label>
                             </div>
                         </fieldset>
@@ -1753,12 +1845,12 @@
                         
                         <div class="p-6 rounded-xl border border-secondary-container/30 bg-secondary-container/5 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-secondary-container/60 transition-colors cursor-pointer group custom-checkbox-wrapper">
                             <div class="flex gap-4 items-start">
-                                <input type="checkbox" name="calc_retainer" value="2500" class="calc_addon_monthly custom-checkbox w-5 h-5 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
+                                <input type="checkbox" name="calc_retainer" value="1600" class="calc_addon_recurring custom-checkbox w-5 h-5 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
                                 <div>
                                     <span class="flex items-center gap-2 font-bold text-white mb-2 group-hover:text-secondary-container transition-colors">
                                         Priority Design Partnership
                                     </span>
-                                    <span class="text-sm text-on-surface-variant block leading-relaxed">Reserve a dedicated block of hours every month for ongoing marketing graphics, website updates, menu changes, or general creative consultation. Skip the per-project quoting process entirely.</span>
+                                    <span class="text-sm text-on-surface-variant block leading-relaxed">Reserve a dedicated block of hours every month for ongoing marketing graphics, website updates, menu changes, or general creative consultation.</span>
                                 </div>
                             </div>
                             <div class="font-label-sm text-secondary-container font-bold whitespace-nowrap text-xl text-right shrink-0 ml-9 md:ml-0">
@@ -1801,7 +1893,6 @@
                 <!-- RIGHT COLUMN: Sticky Total Display & Form Submission -->
                 <div class="w-full lg:w-[380px] shrink-0 lg:sticky lg:top-4 bg-surface/90 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl z-20">
                     
-                    <!-- Vertical Totals -->
                     <div class="flex flex-col gap-6 mb-8 pb-8 border-b border-white/10">
                         <div>
                             <p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-label-sm mb-2">Estimated Initial Investment</p>
@@ -1818,19 +1909,18 @@
                         </div>
                     </div>
 
-                    <!-- Contact Fields -->
                     <div class="space-y-5 mb-8">
                         <div>
                             <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="brand_calc_name">Name</label>
-                            <input type="text" id="brand_calc_name" name="name" autocomplete="name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <input type="text" id="brand_calc_name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="brand_calc_email">Email Address</label>
-                            <input type="email" id="brand_calc_email" name="email" autocomplete="email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <input type="email" id="brand_calc_email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="brand_calc_company">Brand / Company Name</label>
-                            <input type="text" id="brand_calc_company" name="company" autocomplete="organization" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="brand_calc_extra">Brand / Company Name</label>
+                            <input type="text" id="brand_calc_extra" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
                         </div>
                     </div>
 
@@ -1855,14 +1945,247 @@
     </div>
 </div>
 
-<!-- Privacy Policy Modal -->
-<div id="modal-privacy" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="privacy-title" role="dialog" aria-modal="true">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop"></div>
+<!-- Interactive Art Quote Calculator Modal -->
+<div id="modal-art-quote" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="art-quote-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/90 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
-    <!-- Content Box -->
+    <div class="relative z-10 w-full max-w-5xl max-h-[90vh] overflow-y-auto glass-panel-heavy rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
+        <div class="sticky top-0 z-[60] flex justify-end p-4">
+            <button type="button" class="close-modal p-2 rounded-full bg-surface text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all backdrop-blur-md border border-white/10" aria-label="Close quote calculator" data-close-modal>
+                <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
+            </button>
+        </div>
+        
+        <div class="p-8 md:p-12 relative -mt-16">
+            <div class="mb-10 border-b border-white/10 pb-8">
+                <h2 id="art-quote-title" class="font-display-lg text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Commission Custom Artwork</h2>
+                <p class="text-on-surface-variant text-base leading-relaxed mb-4 max-w-3xl">
+                    Select your preferred canvas size, painting style, and finishing options to get an instant quote for your personalized, handcrafted art piece.
+                </p>
+                <div class="p-4 rounded-lg bg-surface border border-outline flex gap-3 items-start max-w-3xl">
+                    <span class="material-symbols-outlined text-primary-container mt-0.5 text-xl" aria-hidden="true">celebration</span>
+                    <p class="text-xs text-on-surface-variant">
+                        <strong class="text-white font-medium">Special Offer:</strong> A4 Color Portraits with Framing automatically receive our promotional rate of RM199!
+                    </p>
+                </div>
+            </div>
+
+            <form id="art-quote-calculator-form" class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
+                
+                <div class="flex-1 space-y-12 w-full">
+                    
+                    <!-- Section 1: Canvas Size -->
+                    <section>
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">1</span> 
+                                Physical Size
+                            </legend>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_size" value="A5" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">A5 Size</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">14.8 x 21 cm</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper border-primary-container/30 bg-primary-container/5">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_size" value="A4" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0" checked>
+                                        <div>
+                                            <span class="block text-sm text-white font-bold flex items-center gap-2">A4 Size <span class="bg-primary-container text-background text-[9px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Most Popular</span></span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">21 x 29.7 cm</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_size" value="A3" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">A3 Size</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">29.7 x 42 cm</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_size" value="A2" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">A2 Size</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">42 x 59.4 cm</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper md:col-span-2">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_size" value="Custom" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Custom Projects</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Special sizing, specific subjects, or varied styles. Pricing determined upon request.</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 2: Artistic Style -->
+                    <section class="art-config-section">
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">2</span> 
+                                Artistic Style
+                            </legend>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
+                                    <input type="radio" name="art_calc_style" value="Color" class="custom-radio sr-only peer calc-art-input" checked>
+                                    <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container"></div>
+                                    <div class="flex flex-col h-full relative z-10">
+                                        <span class="font-bold text-white mb-2 flex justify-between items-start">
+                                            Full Color (Ink & Watercolor)
+                                            <span class="radio-indicator shrink-0 ml-2 w-4 h-4 rounded-full border border-white/30 flex items-center justify-center mt-1">
+                                                <span class="w-2 h-2 rounded-full bg-primary-container opacity-0 transition-opacity"></span>
+                                            </span>
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant leading-relaxed">Vibrant, traditional watercolor painting over meticulous ink lines.</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
+                                    <input type="radio" name="art_calc_style" value="BW" class="custom-radio sr-only peer calc-art-input">
+                                    <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container"></div>
+                                    <div class="flex flex-col h-full relative z-10">
+                                        <span class="font-bold text-white mb-2 flex justify-between items-start">
+                                            Black & White
+                                            <span class="radio-indicator shrink-0 ml-2 w-4 h-4 rounded-full border border-white/30 flex items-center justify-center mt-1">
+                                                <span class="w-2 h-2 rounded-full bg-primary-container opacity-0 transition-opacity"></span>
+                                            </span>
+                                        </span>
+                                        <span class="text-xs text-on-surface-variant leading-relaxed">Striking monochrome portrait focusing on contrast and linework.</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <!-- Section 3: Finishing & Framing -->
+                    <section class="art-config-section">
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">3</span> 
+                                Finishing
+                            </legend>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_finish" value="Artwork" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0" checked>
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Artwork Only</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Provided safely packaged.</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_finish" value="Framed" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Ready-to-Hang Frame</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Mounted in a high-quality frame.</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+                    
+                    <!-- Section 4: Turnaround -->
+                    <section class="art-config-section">
+                        <fieldset class="border-0 p-0 m-0 min-w-0">
+                            <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
+                                <span class="flex items-center justify-center w-6 h-6 rounded bg-primary-container text-background text-xs font-bold">4</span> 
+                                Delivery Timeline
+                            </legend>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_speed" value="Standard" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-art-input shrink-0" checked>
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Standard Delivery</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Ships within 5 Days.</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-tertiary-fixed-dim/50 custom-radio-wrapper border-tertiary-fixed-dim/20 bg-gradient-to-r from-surface/40 to-tertiary-fixed-dim/5">
+                                    <div class="flex items-center gap-3">
+                                        <input type="radio" name="art_calc_speed" value="Rush" class="custom-radio w-4 h-4 text-tertiary-fixed-dim bg-surface border-white/30 focus:ring-tertiary-fixed-dim focus:ring-offset-background calc-art-input shrink-0">
+                                        <div>
+                                            <span class="block text-sm text-white font-bold">Rush Order</span>
+                                            <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Prioritized. Ships in 2-3 Days.</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+                </div>
+
+                <!-- RIGHT COLUMN: Sticky Total Display & Form Submission -->
+                <div class="w-full lg:w-[380px] shrink-0 lg:sticky lg:top-4 bg-surface/90 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-2xl shadow-2xl z-20">
+                    
+                    <div class="flex flex-col gap-6 mb-8 pb-8 border-b border-white/10">
+                        <div>
+                            <p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-label-sm mb-2">Estimated Investment</p>
+                            <div class="text-4xl font-display-lg font-bold text-primary-container flex items-baseline gap-2" aria-live="polite" aria-atomic="true">
+                                <span id="art_calc_currency">RM</span> <span id="art_calc_total">190</span>
+                            </div>
+                            <p id="art_calc_promo_note" class="text-xs text-primary-container mt-2 font-bold hidden">★ Promo Rate Applied</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-5 mb-8">
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="art_calc_name">Name</label>
+                            <input type="text" id="art_calc_name" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="art_calc_email">Email Address</label>
+                            <input type="email" id="art_calc_email" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-2" for="art_calc_extra">Phone / WhatsApp</label>
+                            <input type="tel" id="art_calc_extra" required class="w-full bg-background border border-white/10 rounded-lg p-3 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 px-6 rounded-xl bg-primary-container text-background font-bold text-[15px] hover:bg-primary-fixed-dim transition-colors flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform" aria-hidden="true">send</span> Submit Inquiry
+                    </button>
+                    
+                    <p class="text-[10px] text-on-surface-variant text-center mt-4">Provide photo references securely after we connect.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="modal-privacy" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="privacy-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop" data-close-modal></div>
+    
     <div class="relative z-10 w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel-heavy rounded-2xl p-8 md:p-12 shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
-        <button type="button" class="close-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary-container transition-colors" aria-label="Close">
+        <button type="button" class="close-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary-container transition-colors" aria-label="Close" data-close-modal>
             <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
         
@@ -1873,43 +2196,26 @@
         
         <div class="space-y-6 text-sm text-on-surface-variant font-body-md leading-relaxed">
             <p>Last updated: August 2026</p>
-            
+            <!--
+                NOTE: This is placeholder text. Since the site's quote-calculator
+                forms collect name, email, and phone number, Malaysia's Personal
+                Data Protection Act 2010 (PDPA) applies to this business. Replace
+                this section with real policy content — covering what's
+                collected, why, how long it's kept, and how people can request
+                deletion — before launch.
+            -->
             <h3 class="text-white font-bold text-base mt-8 mb-2">1. Introduction</h3>
-            <p>Welcome to Nuaie Studio. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our creative, marketing, and design services.</p>
-            
-            <h3 class="text-white font-bold text-base mt-8 mb-2">2. Information We Collect</h3>
-            <p>We may collect information you provide directly to us when you communicate via WhatsApp, email, or other channels. This includes:</p>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>Identity Data: Name, business name, and job title.</li>
-                <li>Contact Data: Email address, phone number, and social media handles.</li>
-                <li>Technical Data: IP address, browser type, and usage data via Google Analytics to help us understand how our website is being used.</li>
-            </ul>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">3. How We Use Your Information</h3>
-            <p>We use your information solely to:</p>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>Provide, operate, and maintain our design and marketing services.</li>
-                <li>Respond to your inquiries, quotes, and customer service requests.</li>
-                <li>Analyze website usage to improve our portfolio and user experience.</li>
-            </ul>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">4. Data Sharing and Security</h3>
-            <p>We do not sell, trade, or rent your personal information to third parties. We use standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.</p>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">5. Contact Us</h3>
-            <p>If you have any questions about this Privacy Policy, please contact us at razie.alfiedan@gmail.com.</p>
+            <p>Welcome to Nuaie Studio. We respect your privacy and are committed to protecting your personal data...</p>
         </div>
     </div>
 </div>
 
 <!-- Terms of Service Modal -->
-<div id="modal-terms" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="terms-title" role="dialog" aria-modal="true">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop"></div>
+<div id="modal-terms" inert aria-hidden="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" aria-labelledby="terms-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-md modal-backdrop" data-close-modal></div>
     
-    <!-- Content Box -->
     <div class="relative z-10 w-full max-w-3xl max-h-[85vh] overflow-y-auto glass-panel-heavy rounded-2xl p-8 md:p-12 shadow-2xl transform scale-95 transition-transform duration-300 modal-content">
-        <button type="button" class="close-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary-container transition-colors" aria-label="Close">
+        <button type="button" class="close-modal absolute top-6 right-6 text-on-surface-variant hover:text-primary-container transition-colors" aria-label="Close" data-close-modal>
             <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
         
@@ -1920,27 +2226,22 @@
         
         <div class="space-y-6 text-sm text-on-surface-variant font-body-md leading-relaxed">
             <p>Last updated: August 2026</p>
-            
             <h3 class="text-white font-bold text-base mt-8 mb-2">1. Agreement to Terms</h3>
-            <p>By accessing our website and engaging Nuaie Studio for services (including social media management, video production, design, and physical art), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
-            
-            <h3 class="text-white font-bold text-base mt-8 mb-2">2. Services and Deliverables</h3>
-            <p>Nuaie Studio provides creative design and marketing services as outlined in specific project quotes or retainer agreements. Timelines, deliverables, and revision rounds will be agreed upon in writing prior to project commencement.</p>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">3. Intellectual Property rights</h3>
-            <p>Upon full payment, final design assets (logos, branding, websites, videos) are licensed or transferred to the client as outlined in your specific contract. Nuaie Studio retains the right to display all completed work in our portfolio, website, and social media channels unless a Non-Disclosure Agreement (NDA) is signed prior to the project. Original physical artwork remains the intellectual property of Razie Alfiedan unless copyright is explicitly sold.</p>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">4. Payments and Refunds</h3>
-            <p>A non-refundable deposit is required to commence work. Due to the custom nature of design and marketing services, we do not offer refunds on work that has already been executed. Monthly retainers require 30 days written notice for cancellation.</p>
-
-            <h3 class="text-white font-bold text-base mt-8 mb-2">5. Governing Law</h3>
-            <p>These terms shall be governed by and construed in accordance with the laws of Malaysia, without regard to its conflict of law provisions.</p>
+            <p>By accessing our website and engaging Nuaie Studio for services, you agree to be bound by these Terms of Service...</p>
         </div>
     </div>
 </div>
 
 <script>
-    // Subtle Nav Background on Scroll
+    // --- 1. Global Settings ---
+    const WA_NUMBER = "60128218280";
+    const DEFAULT_WA_MSG = "Hi Nuaie Studio, I'd like to find out more about your services.";
+    // NOTE: `.wa-link` hrefs are now hardcoded directly in the HTML (progressive
+    // enhancement — they work even if this script fails to load or errors out).
+    // WA_NUMBER/DEFAULT_WA_MSG are kept here because the quote-calculator
+    // submit handlers below still build their own WhatsApp messages dynamically.
+
+    // --- 2. Scroll Interaction ---
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('nav');
         if (window.scrollY > 50) {
@@ -1952,7 +2253,7 @@
         }
     });
 
-    // Mobile Menu Toggle Logic
+    // --- 3. Mobile Menu Toggle ---
     const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -1961,45 +2262,33 @@
     function toggleMenu() {
         menuOpen = !menuOpen;
         if (menuOpen) {
+            mobileMenu.inert = false;
             mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'scale-105');
             mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
             mobileMenuBtn.querySelector('span').innerText = 'close';
             mobileMenuBtn.setAttribute('aria-expanded', 'true');
-            mobileMenuBtn.setAttribute('aria-label', 'Close menu');
             document.body.style.overflow = 'hidden';
         } else {
+            mobileMenu.inert = true;
             mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
             mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
             mobileMenuBtn.querySelector('span').innerText = 'menu';
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.setAttribute('aria-label', 'Open menu');
             document.body.style.overflow = '';
         }
     }
 
-    mobileMenuBtn.addEventListener('click', toggleMenu);
+    if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menuOpen) toggleMenu(); });
+    mobileLinks.forEach(link => link.addEventListener('click', () => { if (menuOpen) toggleMenu(); }));
 
-    // Close mobile menu on Escape for keyboard users
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menuOpen) toggleMenu();
-    });
-
-    // Auto close menu when link clicked
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (menuOpen) toggleMenu();
-        });
-    });
-
-    // Scroll Reveal Animation Logic
+    // --- 4. Scroll Reveal Animations ---
     document.addEventListener("DOMContentLoaded", () => {
         const revealElements = document.querySelectorAll('.reveal');
-
         if (!('IntersectionObserver' in window)) {
             revealElements.forEach(el => el.classList.add('active'));
             return;
         }
-
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2007,59 +2296,38 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        });
-
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
         revealElements.forEach(el => revealObserver.observe(el));
     });
 
-    // Gallery Slider Logic - Circular Looping & Autoplay Version
+    // --- 5. Generalized Slider Logic ---
     class CoverflowSlider {
-        constructor(containerId) {
-            this.container = document.getElementById(containerId);
-            if (!this.container) return;
-
+        constructor(containerEl) {
+            this.container = containerEl;
             this.items = Array.from(this.container.querySelectorAll('.slider-item'));
-            this.prevBtn = document.getElementById(containerId + '-prev');
-            this.nextBtn = document.getElementById(containerId + '-next');
-            this.toggleBtn = document.getElementById(containerId + '-toggle');
+            this.id = this.container.id;
+            
+            this.prevBtn = document.getElementById(this.id + '-prev');
+            this.nextBtn = document.getElementById(this.id + '-next');
+            this.toggleBtn = document.getElementById(this.id + '-toggle');
 
             this.currentIndex = Math.floor(this.items.length / 2);
             this.autoPlayInterval = null;
             this.userPaused = false;
-
             this.init();
         }
 
         init() {
             this.update();
-
-            if (this.prevBtn) {
-                this.prevBtn.addEventListener('click', () => {
-                    this.prev();
-                    this.resetAutoPlay();
-                });
-            }
-            if (this.nextBtn) {
-                this.nextBtn.addEventListener('click', () => {
-                    this.next();
-                    this.resetAutoPlay();
-                });
-            }
+            if (this.prevBtn) this.prevBtn.addEventListener('click', () => { this.prev(); this.resetAutoPlay(); });
+            if (this.nextBtn) this.nextBtn.addEventListener('click', () => { this.next(); this.resetAutoPlay(); });
             if (this.toggleBtn) {
                 this.toggleBtn.addEventListener('click', () => {
                     this.userPaused = !this.userPaused;
-                    if (this.userPaused) {
-                        this.pauseAutoPlay();
-                    } else {
-                        this.startAutoPlay();
-                    }
+                    this.userPaused ? this.pauseAutoPlay() : this.startAutoPlay();
                     this.updateToggleButton();
                 });
             }
-
             this.items.forEach((item, idx) => {
                 item.addEventListener('click', () => {
                     this.currentIndex = idx;
@@ -2069,14 +2337,10 @@
             });
 
             this.container.addEventListener('mouseenter', () => this.pauseAutoPlay());
-            this.container.addEventListener('mouseleave', () => {
-                if (!this.userPaused) this.startAutoPlay();
-            });
+            this.container.addEventListener('mouseleave', () => { if (!this.userPaused) this.startAutoPlay(); });
             this.container.addEventListener('focusin', () => this.pauseAutoPlay());
-            this.container.addEventListener('focusout', () => {
-                if (!this.userPaused) this.startAutoPlay();
-            });
-
+            this.container.addEventListener('focusout', () => { if (!this.userPaused) this.startAutoPlay(); });
+            
             this.startAutoPlay();
         }
 
@@ -2092,375 +2356,308 @@
             }
         }
 
-        next() {
-            this.currentIndex = (this.currentIndex + 1) % this.items.length;
-            this.update();
-        }
-
-        prev() {
-            this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-            this.update();
-        }
-
-        startAutoPlay() {
-            if (!this.autoPlayInterval) {
-                this.autoPlayInterval = setInterval(() => this.next(), 3500);
-            }
-        }
-
-        pauseAutoPlay() {
-            if (this.autoPlayInterval) {
-                clearInterval(this.autoPlayInterval);
-                this.autoPlayInterval = null;
-            }
-        }
-
-        resetAutoPlay() {
-            this.pauseAutoPlay();
-            if (!this.userPaused) this.startAutoPlay();
-        }
+        next() { this.currentIndex = (this.currentIndex + 1) % this.items.length; this.update(); }
+        prev() { this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length; this.update(); }
+        startAutoPlay() { if (!this.autoPlayInterval) this.autoPlayInterval = setInterval(() => this.next(), 3500); }
+        pauseAutoPlay() { if (this.autoPlayInterval) { clearInterval(this.autoPlayInterval); this.autoPlayInterval = null; } }
+        resetAutoPlay() { this.pauseAutoPlay(); if (!this.userPaused) this.startAutoPlay(); }
 
         update() {
-            if (this.items.length === 0) return;
+            if (!this.items.length) return;
             const len = this.items.length;
-            
             this.items.forEach((item, index) => {
                 let diff = index - this.currentIndex;
-
                 if (diff > Math.floor(len / 2)) diff -= len;
                 if (diff < -Math.floor(len / 2)) diff += len;
 
-                let translateX = '-50%';
-                let scale = 1;
-                let zIndex = 10;
-                let opacity = 1;
-                let filter = 'brightness(1)';
-                let pointerEvents = 'auto';
+                let translateX = '-50%', scale = 1, zIndex = 10, opacity = 1, filter = 'brightness(1)', pointerEvents = 'auto';
 
                 if (diff === 0) {
-                    translateX = '-50%';
-                    scale = 1;
                     zIndex = 30;
-                    opacity = 1;
-                    filter = 'brightness(1)';
                     item.classList.add('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border', 'border-primary-container/30');
                     item.classList.remove('border-white/5');
-                } else if (diff === 1) {
-                    translateX = 'calc(-50% + 55%)';
-                    scale = 0.85;
-                    zIndex = 20;
-                    opacity = 0.8;
-                    filter = 'brightness(0.6)';
+                } else if (Math.abs(diff) === 1) {
+                    translateX = diff === 1 ? 'calc(-50% + 55%)' : 'calc(-50% - 55%)';
+                    scale = 0.85; zIndex = 20; opacity = 0.8; filter = 'brightness(0.6)';
                     item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
                     item.classList.add('border', 'border-white/5');
-                } else if (diff === -1) {
-                    translateX = 'calc(-50% - 55%)';
-                    scale = 0.85;
-                    zIndex = 20;
-                    opacity = 0.8;
-                    filter = 'brightness(0.6)';
-                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
-                    item.classList.add('border', 'border-white/5');
-                } else if (diff > 1) {
-                    translateX = 'calc(-50% + 100%)';
-                    scale = 0.6;
-                    zIndex = 10;
-                    opacity = 0;
-                    pointerEvents = 'none';
-                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
-                } else if (diff < -1) {
-                    translateX = 'calc(-50% - 100%)';
-                    scale = 0.6;
-                    zIndex = 10;
-                    opacity = 0;
-                    pointerEvents = 'none';
+                } else {
+                    translateX = diff > 1 ? 'calc(-50% + 100%)' : 'calc(-50% - 100%)';
+                    scale = 0.6; opacity = 0; pointerEvents = 'none';
                     item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
                 }
-
+                
                 item.style.transform = `translate(${translateX}, -50%) scale(${scale})`;
-                item.style.zIndex = zIndex;
-                item.style.opacity = opacity;
-                item.style.pointerEvents = pointerEvents;
+                item.style.zIndex = zIndex; item.style.opacity = opacity; item.style.pointerEvents = pointerEvents;
                 const img = item.querySelector('img');
                 if (img) img.style.filter = filter;
             });
         }
     }
 
-    // Interactive Web Design Quote Calculator Logic
-    function initializeCalculator() {
-        const form = document.getElementById('quote-calculator-form');
-        if (!form) return;
-        
-        const inputs = form.querySelectorAll('.calc-input');
-        const initialEl = document.getElementById('calc_total_initial');
-        const annualEl = document.getElementById('calc_total_annual');
-
-        function calculateQuote() {
-            let initialTotal = 3200; // Base Standard Web Architecture
-            let annualTotal = 850;   // Base Hosting & Management
-
-            // Add-ons
-            const extraPages = parseInt(document.getElementById('calc_extra_pages').value) || 0;
-            initialTotal += extraPages * 200;
-
-            const extraProducts = parseInt(document.getElementById('calc_extra_products').value) || 0;
-            initialTotal += extraProducts * 20;
-
-            // Aesthetics Radio
-            const aesthetics = form.querySelector('input[name="calc_aesthetics"]:checked');
-            if (aesthetics) initialTotal += parseInt(aesthetics.value);
-
-            // Content Management Radio
-            const content = form.querySelector('input[name="calc_content"]:checked');
-            if (content) initialTotal += parseInt(content.value);
-
-            // Initial Checkboxes
-            form.querySelectorAll('.calc_addon_initial:checked').forEach(cb => {
-                initialTotal += parseInt(cb.value);
-            });
-
-            // Annual Checkboxes
-            form.querySelectorAll('.calc_addon_annual:checked').forEach(cb => {
-                annualTotal += parseInt(cb.value);
-            });
-
-            // Format styling
-            initialEl.textContent = initialTotal.toLocaleString('en-MY');
-            annualEl.textContent = annualTotal.toLocaleString('en-MY');
-        }
-
-        // Add listeners to recalculate on change
-        inputs.forEach(input => {
-            input.addEventListener('input', calculateQuote);
-            input.addEventListener('change', calculateQuote);
+    // --- 6. Lightweight Click-to-Play YouTube Embeds ---
+    document.querySelectorAll('.yt-facade').forEach(facade => {
+        facade.addEventListener('click', function() {
+            const vid = this.dataset.vid;
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${vid}?autoplay=1`);
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.className = 'absolute inset-0 w-full h-full border-0';
+            this.innerHTML = '';
+            this.appendChild(iframe);
+            this.classList.remove('cursor-pointer', 'group');
         });
+    });
 
-        // Form Submission to WhatsApp
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('calc_name').value;
-            const email = document.getElementById('calc_email').value;
-            const phone = document.getElementById('calc_phone').value;
-            const intent = form.querySelector('input[name="calc_intent"]:checked').value;
-            const platform = form.querySelector('input[name="calc_platform"]:checked').value;
-            const initTotal = document.getElementById('calc_total_initial').textContent;
-            const annTotal = document.getElementById('calc_total_annual').textContent;
-
-            // Collect special integrations
-            let specialSelected = [];
-            form.querySelectorAll('input[name="calc_special"]:checked').forEach(cb => {
-                specialSelected.push("- " + cb.value);
-            });
-
-            let msg = `Hello Nuaie Studio,\n\nI just used the Custom Web Project Estimator on your website and would like to discuss my project.\n\n`;
-            msg += `*Name:* ${name}\n`;
-            msg += `*Email:* ${email}\n`;
-            msg += `*Phone:* ${phone}\n\n`;
-            msg += `*Estimated Initial Investment:* RM ${initTotal}\n`;
-            msg += `*Recurring Annual Upkeep:* RM ${annTotal}\n\n`;
-            msg += `*Platform:* ${platform}\n`;
-            
-            if (specialSelected.length > 0) {
-                msg += `\n*Special Integrations Requested:*\n${specialSelected.join('\n')}\n\n`;
-            } else {
-                msg += `\n`;
-            }
-            
-            msg += `*Client Note:* ${intent}`;
-
-            const whatsappUrl = `https://wa.me/60128218280?text=${encodeURIComponent(msg)}`;
-            window.open(whatsappUrl, '_blank');
-        });
-        
-        calculateQuote();
+    // --- 7. Generalized Modals Logic ---
+    let lastFocusedElement = null;
+    
+    function getFocusableElements(modal) {
+        return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null);
+    }
+    
+    function openModal(modal, trigger) {
+        lastFocusedElement = trigger || document.activeElement;
+        modal.inert = false;
+        modal.removeAttribute('aria-hidden');
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.querySelector('.modal-content').classList.remove('scale-95');
+        modal.querySelector('.modal-content').classList.add('scale-100');
+        document.body.style.overflow = 'hidden'; 
+        const focusable = getFocusableElements(modal);
+        if (focusable.length) focusable[0].focus();
     }
 
-    // Interactive Branding Quote Calculator Logic
-    function initializeBrandingCalculator() {
-        const form = document.getElementById('branding-quote-calculator-form');
-        if (!form) return;
-        
-        const inputs = form.querySelectorAll('.calc-input');
-        const initialEl = document.getElementById('brand_calc_total_initial');
-        const monthlyEl = document.getElementById('brand_calc_total_monthly');
-
-        function calculateBrandingQuote() {
-            let initialTotal = 0;
-            let monthlyTotal = 0;
-
-            // Core Identity Radio
-            const coreIdentity = form.querySelector('input[name="calc_core_identity"]:checked');
-            if (coreIdentity) initialTotal += parseInt(coreIdentity.value);
-
-            // Guidelines Radio
-            const guidelines = form.querySelector('input[name="calc_guidelines"]:checked');
-            if (guidelines) initialTotal += parseInt(guidelines.value);
-
-            // Initial Addon Checkboxes
-            form.querySelectorAll('.calc_addon_initial:checked').forEach(cb => {
-                initialTotal += parseInt(cb.value);
-            });
-
-            // Monthly Addon Checkboxes
-            form.querySelectorAll('.calc_addon_monthly:checked').forEach(cb => {
-                monthlyTotal += parseInt(cb.value);
-            });
-
-            // Format styling
-            initialEl.textContent = initialTotal.toLocaleString('en-MY');
-            monthlyEl.textContent = monthlyTotal.toLocaleString('en-MY');
-        }
-
-        // Add listeners to recalculate on change
-        inputs.forEach(input => {
-            input.addEventListener('input', calculateBrandingQuote);
-            input.addEventListener('change', calculateBrandingQuote);
-        });
-
-        // Form Submission to WhatsApp
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('brand_calc_name').value;
-            const email = document.getElementById('brand_calc_email').value;
-            const company = document.getElementById('brand_calc_company').value;
-            const intent = form.querySelector('input[name="calc_intent"]:checked').value;
-            const initTotal = initialEl.textContent;
-            const monTotal = monthlyEl.textContent;
-
-            // Collect special integrations
-            let specialSelected = [];
-            form.querySelectorAll('input[name="calc_special"]:checked').forEach(cb => {
-                specialSelected.push("- " + cb.value);
-            });
-
-            let msg = `Hello Nuaie Studio,\n\nI just used the Branding Project Estimator on your website and would like to discuss my project.\n\n`;
-            msg += `*Name:* ${name}\n`;
-            msg += `*Email:* ${email}\n`;
-            msg += `*Brand/Company:* ${company}\n\n`;
-            msg += `*Estimated Initial Investment:* RM ${initTotal}\n`;
-            msg += `*Monthly Retainer:* RM ${monTotal}\n`;
-            
-            if (specialSelected.length > 0) {
-                msg += `\n*Special Services Requested:*\n${specialSelected.join('\n')}\n\n`;
-            } else {
-                msg += `\n`;
-            }
-            
-            msg += `*Client Note:* ${intent}`;
-
-            const whatsappUrl = `https://wa.me/60128218280?text=${encodeURIComponent(msg)}`;
-            window.open(whatsappUrl, '_blank');
-        });
-        
-        calculateBrandingQuote();
+    function closeModal(modal) {
+        modal.inert = true;
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.querySelector('.modal-content').classList.add('scale-95');
+        modal.querySelector('.modal-content').classList.remove('scale-100');
+        document.body.style.overflow = ''; 
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
     }
 
-    // Initialize all sliders and Modals
-    document.addEventListener("DOMContentLoaded", () => {
-        new CoverflowSlider('slider-social');
-        new CoverflowSlider('slider-video');
-        new CoverflowSlider('slider-design');
-        new CoverflowSlider('slider-art');
-        
-        initializeCalculator();
-        initializeBrandingCalculator();
-        
-        // --- Modals Logic ---
-        const modalPrivacy = document.getElementById('modal-privacy');
-        const modalTerms = document.getElementById('modal-terms');
-        const modalQuote = document.getElementById('modal-quote');
-        const modalBrandingQuote = document.getElementById('modal-branding-quote');
-        
-        const btnPrivacy = document.getElementById('open-privacy');
-        const btnTerms = document.getElementById('open-terms');
-        const btnQuote = document.getElementById('open-quote-modal');
-        const btnBrandingQuote = document.getElementById('open-branding-quote-modal');
-        
-        const closeButtons = document.querySelectorAll('.close-modal');
-        const backdrops = document.querySelectorAll('.modal-backdrop');
+    document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modal = document.getElementById(trigger.getAttribute('data-modal-target'));
+            if(modal) openModal(modal, trigger);
+        });
+    });
 
-        let lastFocusedElement = null;
+    document.querySelectorAll('[data-close-modal]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            closeModal(this.closest('div[role="dialog"]'));
+        });
+    });
 
-        function getFocusableElements(modal) {
-            return Array.from(
-                modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
-            ).filter(el => el.offsetParent !== null);
-        }
+    document.addEventListener('keydown', (e) => {
+        const openModalEl = document.querySelector('div[role="dialog"]:not(.opacity-0)');
+        if (!openModalEl) return;
 
-        function openModal(modal, trigger) {
-            lastFocusedElement = trigger || document.activeElement;
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.querySelector('.modal-content').classList.remove('scale-95');
-            modal.querySelector('.modal-content').classList.add('scale-100');
-            document.body.style.overflow = 'hidden'; 
-
-            const focusable = getFocusableElements(modal);
-            if (focusable.length) focusable[0].focus();
-        }
-
-        function closeModal(modal) {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.querySelector('.modal-content').classList.add('scale-95');
-            modal.querySelector('.modal-content').classList.remove('scale-100');
-            document.body.style.overflow = ''; 
-
-            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-                lastFocusedElement.focus();
-            }
-        }
-
-        function trapFocus(e, modal) {
-            if (e.key !== 'Tab') return;
-            const focusable = getFocusableElements(modal);
+        if (e.key === 'Escape') closeModal(openModalEl);
+        if (e.key === 'Tab') {
+            const focusable = getFocusableElements(openModalEl);
             if (!focusable.length) return;
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
+            const first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
 
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
+    // --- 8. Generalized Quote Calculator Logic ---
+    function initQuoteCalculator(config) {
+        const form = document.getElementById(config.formId);
+        if (!form) return;
+        
+        const initialEl = document.getElementById(config.initialId);
+        const recurringEl = document.getElementById(config.recurringId);
+
+        function calc() {
+            let initial = config.baseInitial || 0;
+            let recurring = config.baseRecurring || 0;
+            
+            if (config.multipliers) {
+                config.multipliers.forEach(m => {
+                    const el = document.getElementById(m.id);
+                    if(el) initial += (parseInt(el.value) || 0) * m.rate;
+                });
             }
+            if (config.radios) {
+                config.radios.forEach(name => {
+                    const checked = form.querySelector(`input[name="${name}"]:checked`);
+                    if (checked) initial += parseInt(checked.value) || 0;
+                });
+            }
+
+            form.querySelectorAll('.calc_addon_initial:checked').forEach(cb => initial += parseInt(cb.value) || 0);
+            form.querySelectorAll('.calc_addon_recurring:checked').forEach(cb => recurring += parseInt(cb.value) || 0);
+            
+            if(initialEl) initialEl.textContent = initial.toLocaleString('en-MY');
+            if(recurringEl) recurringEl.textContent = recurring.toLocaleString('en-MY');
         }
 
-        // Event Listeners for Opening
-        if (btnPrivacy) btnPrivacy.addEventListener('click', (e) => { e.preventDefault(); openModal(modalPrivacy, btnPrivacy); });
-        if (btnTerms) btnTerms.addEventListener('click', (e) => { e.preventDefault(); openModal(modalTerms, btnTerms); });
-        if (btnQuote) btnQuote.addEventListener('click', (e) => { e.preventDefault(); openModal(modalQuote, btnQuote); });
-        if (btnBrandingQuote) btnBrandingQuote.addEventListener('click', (e) => { e.preventDefault(); openModal(modalBrandingQuote, btnBrandingQuote); });
-
-        // Event Listeners for Closing
-        closeButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const modal = this.closest('div[role="dialog"]');
-                closeModal(modal);
-            });
+        form.querySelectorAll('.calc-input').forEach(input => {
+            input.addEventListener('input', calc);
+            input.addEventListener('change', calc);
         });
 
-        backdrops.forEach(backdrop => {
-            backdrop.addEventListener('click', function() {
-                const modal = this.closest('div[role="dialog"]');
-                closeModal(modal);
-            });
-        });
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const name = document.getElementById(`${config.prefix}_name`)?.value || "";
+            const email = document.getElementById(`${config.prefix}_email`)?.value || "";
+            const extra = document.getElementById(`${config.prefix}_extra`)?.value || "";
+            const intent = form.querySelector('input[name="calc_intent"]:checked')?.value || "";
 
-        document.addEventListener('keydown', (e) => {
-            const openModalEl = [modalPrivacy, modalTerms, modalQuote, modalBrandingQuote].find(m => !m.classList.contains('opacity-0'));
-            if (!openModalEl) return;
+            let special = [];
+            form.querySelectorAll('input[name="calc_special"]:checked').forEach(cb => special.push("- " + cb.value));
 
-            if (e.key === 'Escape') {
-                closeModal(openModalEl);
-            } else if (e.key === 'Tab') {
-                trapFocus(e, openModalEl);
+            let msg = `Hello Nuaie Studio,\n\nI just used the ${config.title} on your website and would like to discuss my project.\n\n`;
+            msg += `*Name:* ${name}\n*Email:* ${email}\n*${config.extraLabel}:* ${extra}\n\n`;
+            msg += `*Initial Investment:* RM ${initialEl.textContent}\n*${config.recurringLabel}:* RM ${recurringEl.textContent}\n\n`;
+
+            if (config.platformName) {
+                const p = form.querySelector(`input[name="${config.platformName}"]:checked`)?.value;
+                if(p) msg += `*Platform:* ${p}\n`;
             }
+            if (special.length) msg += `\n*Special Requests:*\n${special.join('\n')}\n\n`;
+            else msg += `\n`;
+            
+            msg += `*Client Note:* ${intent}`;
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+        calc();
+    }
+    
+    // --- 9. Art Quote Calculator Specific Logic ---
+    function initArtCalculator() {
+        const form = document.getElementById('art-quote-calculator-form');
+        if (!form) return;
+        
+        // Exact Pricing Matrix referenced from the provided flyer
+        const artMatrix = {
+            'A5': { color: 100, bw: 70, frame: 30, rush: 25 },
+            'A4': { color: 190, bw: 130, frame: 50, rush: 50 },
+            'A3': { color: 330, bw: 220, frame: 80, rush: 90 },
+            'A2': { color: 520, bw: 370, frame: 120, rush: 140 }
+        };
+        
+        const totalEl = document.getElementById('art_calc_total');
+        const currencyEl = document.getElementById('art_calc_currency');
+        const promoNote = document.getElementById('art_calc_promo_note');
+        const sectionsToHideForCustom = document.querySelectorAll('.art-config-section');
+
+        function calculateArt() {
+            const size = form.querySelector('input[name="art_calc_size"]:checked')?.value || 'A4';
+            
+            if (size === 'Custom') {
+                totalEl.textContent = 'Bespoke Quote';
+                currencyEl.classList.add('hidden');
+                promoNote.classList.add('hidden');
+                sectionsToHideForCustom.forEach(el => el.classList.add('opacity-50', 'pointer-events-none'));
+                return;
+            }
+            
+            currencyEl.classList.remove('hidden');
+            sectionsToHideForCustom.forEach(el => el.classList.remove('opacity-50', 'pointer-events-none'));
+            
+            const style = form.querySelector('input[name="art_calc_style"]:checked')?.value || 'Color';
+            const finish = form.querySelector('input[name="art_calc_finish"]:checked')?.value || 'Artwork';
+            const speed = form.querySelector('input[name="art_calc_speed"]:checked')?.value || 'Standard';
+            
+            let total = 0;
+            const sizeData = artMatrix[size];
+            
+            // Check for Promo Condition (A4 + Color + Frame)
+            if (size === 'A4' && style === 'Color' && finish === 'Framed') {
+                total = 199;
+                promoNote.classList.remove('hidden');
+            } else {
+                promoNote.classList.add('hidden');
+                total = style === 'Color' ? sizeData.color : sizeData.bw;
+                if (finish === 'Framed') total += sizeData.frame;
+            }
+            
+            if (speed === 'Rush') total += sizeData.rush;
+            
+            totalEl.textContent = total.toLocaleString('en-MY');
+        }
+
+        form.querySelectorAll('.calc-art-input').forEach(input => {
+            input.addEventListener('change', calculateArt);
         });
 
-        // --- Dynamic footer year ---
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const size = form.querySelector('input[name="art_calc_size"]:checked')?.value;
+            const style = form.querySelector('input[name="art_calc_style"]:checked')?.value;
+            const finish = form.querySelector('input[name="art_calc_finish"]:checked')?.value;
+            const speed = form.querySelector('input[name="art_calc_speed"]:checked')?.value;
+            
+            const name = document.getElementById('art_calc_name').value;
+            const email = document.getElementById('art_calc_email').value;
+            const extra = document.getElementById('art_calc_extra').value;
+
+            let msg = `Hi Razie,\n\nI would like to commission a physical artwork piece based on my calculator selections:\n\n`;
+            msg += `*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${extra}\n\n`;
+            
+            if(size === 'Custom') {
+                msg += `*Request Type:* Custom Artwork\n*Estimated Investment:* Bespoke Quote required.\n\nI will send my photo references and custom dimensions/ideas shortly.`;
+            } else {
+                let styleStr = style === 'Color' ? 'Full Color' : 'Black & White';
+                msg += `*Size:* ${size}\n*Style:* ${styleStr}\n*Finishing:* ${finish === 'Framed' ? 'Framed' : 'Artwork Only'}\n*Turnaround:* ${speed === 'Rush' ? 'Rush (2-3 Days)' : 'Standard (5 Days)'}\n\n`;
+                msg += `*Total Estimate:* RM ${totalEl.textContent}\n\nI will send my photo references shortly!`;
+            }
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+        
+        calculateArt();
+    }
+
+    // Initialize all components on DOM Ready
+    document.addEventListener("DOMContentLoaded", () => {
+        // Initialize dynamic sliders
+        document.querySelectorAll('.gallery-slider').forEach(slider => new CoverflowSlider(slider));
+        
+        // Initialize Web Calculator
+        initQuoteCalculator({
+            formId: 'quote-calculator-form',
+            prefix: 'web_calc',
+            title: 'Web Project Estimator',
+            extraLabel: 'Phone',
+            recurringLabel: 'Annual Upkeep',
+            platformName: 'calc_platform',
+            baseInitial: 3200,
+            baseRecurring: 850,
+            multipliers: [
+                { id: 'calc_extra_pages', rate: 200 },
+                { id: 'calc_extra_products', rate: 20 }
+            ],
+            radios: ['calc_aesthetics', 'calc_content'],
+            initialId: 'calc_total_initial',
+            recurringId: 'calc_total_annual'
+        });
+
+        // Initialize Branding Calculator
+        initQuoteCalculator({
+            formId: 'branding-quote-calculator-form',
+            prefix: 'brand_calc',
+            title: 'Branding Project Estimator',
+            extraLabel: 'Company',
+            recurringLabel: 'Monthly Retainer',
+            baseInitial: 0,
+            baseRecurring: 0,
+            radios: ['calc_core_identity', 'calc_guidelines'],
+            initialId: 'brand_calc_total_initial',
+            recurringId: 'brand_calc_total_monthly'
+        });
+        
+        // Initialize the Art Calculator
+        initArtCalculator();
+
+        // Dynamic footer year
         const yearEl = document.getElementById('current-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
