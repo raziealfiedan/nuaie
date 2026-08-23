@@ -211,10 +211,10 @@
         }
 
         /* Form Customizations */
-	.custom-radio-wrapper:has(input:checked), 
-	.custom-checkbox-wrapper:has(input:checked) {
-	    border-color: #CCFF00 !important;
-	    background-color: rgba(204, 255, 0, 0.05) !important;
+        .custom-radio-wrapper:has(input:checked), 
+        .custom-checkbox-wrapper:has(input:checked) {
+            border-color: #CCFF00 !important;
+            background-color: rgba(204, 255, 0, 0.05) !important;
         }
 
         /* Image Zoom on Hover */
@@ -285,6 +285,10 @@
             cursor: pointer;
             overflow: hidden;
             background-color: #16181D;
+            /* Added starting styles to avoid flash before JS inits */
+            transform: translate(-50%, -50%) scale(0.85); 
+            opacity: 0;
+            z-index: 0;
         }
         @media (min-width: 768px) {
             .slider-item { width: 340px; height: 460px; }
@@ -661,16 +665,6 @@
                 <!-- Facade 9 -->
                 <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-3 yt-facade cursor-pointer group" data-vid="5TQ_V1EDuR8">
                     <img src="https://i.ytimg.com/vi/5TQ_V1EDuR8/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-                        <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Facade 10 -->
-                <div class="relative aspect-video overflow-hidden rounded-2xl glass-panel shadow-lg reveal reveal-delay-1 yt-facade cursor-pointer group" data-vid="VIDEO_ID_10">
-                    <img src="https://i.ytimg.com/vi/p0XWTO16B4E/maxresdefault.jpg" alt="Video thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
                         <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-background text-3xl" aria-hidden="true">play_arrow</span>
@@ -1137,7 +1131,7 @@
             <form id="quote-calculator-form" class="flex flex-col lg:flex-row gap-8 lg:gap-12 relative items-start">
                 
                 <div class="flex-1 space-y-12 w-full">
-                    <!-- Section 2: Primary Platform Type -->
+                    <!-- Section 1: Primary Platform Type -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1192,7 +1186,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 3: Core Foundation & Setup -->
+                    <!-- Section 2: Core Foundation & Setup -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1248,7 +1242,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 4: Aesthetics & Visual Identity -->
+                    <!-- Section 3: Aesthetics & Visual Identity -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1309,7 +1303,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 5: Content Management -->
+                    <!-- Section 4: Content Management -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1355,7 +1349,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 6: Functionality Add-Ons -->
+                    <!-- Section 5: Functionality Add-Ons -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1445,7 +1439,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 7: Search Engine Visibility -->
+                    <!-- Section 6: Search Engine Visibility -->
                     <section>
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1485,7 +1479,7 @@
                         </fieldset>
                     </section>
 
-                    <!-- Section 8: Annual Care Subscription -->
+                    <!-- Section 7: Annual Care Subscription -->
                     <section>
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
                             <span class="flex items-center justify-center w-6 h-6 rounded bg-secondary-container text-background text-xs font-bold">7</span> 
@@ -1507,7 +1501,7 @@
                         </div>
                     </section>
 
-                    <!-- Section 9: Specialized Integrations -->
+                    <!-- Section 8: Specialized Integrations -->
                     <section class="pb-12 lg:pb-0">
                         <fieldset class="border-0 p-0 m-0 min-w-0">
                             <legend class="w-full text-xl font-bold text-white mb-4 flex items-center gap-3">
@@ -1636,7 +1630,7 @@
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
-                                    <input type="radio" name="calc_core_identity" value="1500" class="custom-radio sr-only peer calc-input" checked>
+                                    <input type="radio" name="calc_core_identity" value="1500" class="custom-radio sr-only peer calc-brand-input" checked>
                                     <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container"></div>
                                     <div class="flex flex-col h-full relative z-10">
                                         <span class="font-bold text-white mb-2 flex justify-between items-start">
@@ -1651,7 +1645,7 @@
                                 </label>
                                 
                                 <label class="relative block rounded-xl border border-white/10 bg-surface/40 p-5 cursor-pointer hover:border-primary-container/50 transition-colors custom-radio-wrapper">
-                                    <input type="radio" name="calc_core_identity" value="3800" class="custom-radio sr-only peer calc-input">
+                                    <input type="radio" name="calc_core_identity" value="3800" class="custom-radio sr-only peer calc-brand-input">
                                     <div class="absolute inset-0 rounded-xl border-2 border-transparent transition-colors pointer-events-none peer-checked:border-primary-container peer-focus-visible:ring-2 peer-focus-visible:ring-primary-container"></div>
                                     <div class="flex flex-col h-full relative z-10">
                                         <span class="font-bold text-white mb-2 flex justify-between items-start">
@@ -1680,7 +1674,7 @@
                             <div class="space-y-3">
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" name="calc_guidelines" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0" checked>
+                                        <input type="radio" name="calc_guidelines" value="0" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-brand-input shrink-0" checked>
                                         <div>
                                             <span class="block text-sm text-white font-bold">1-Page Brand Board</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">A quick-reference sheet of your logos, colors, and fonts.</span>
@@ -1691,7 +1685,7 @@
                                 
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-radio-wrapper">
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" name="calc_guidelines" value="850" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                        <input type="radio" name="calc_guidelines" value="850" class="custom-radio w-4 h-4 text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Comprehensive Brand Book</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">A 15+ page PDF detailing rules, tone of voice, imagery direction.</span>
@@ -1702,7 +1696,7 @@
 
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-center gap-3">
-                                        <input type="checkbox" name="addon_naming" value="1200" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-input shrink-0">
+                                        <input type="checkbox" name="addon_naming" value="1200" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container focus:ring-offset-background calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Brand Naming & Story</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">We develop your company name, tagline, and core brand narrative.</span>
@@ -1726,7 +1720,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-start gap-3">
-                                        <input type="checkbox" name="addon_stationery" value="350" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <input type="checkbox" name="addon_stationery" value="350" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Stationery Suite</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Business cards, letterheads, and envelope designs.</span>
@@ -1737,7 +1731,7 @@
 
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-start gap-3">
-                                        <input type="checkbox" name="addon_pitch_deck" value="800" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <input type="checkbox" name="addon_pitch_deck" value="800" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Pitch Deck Template</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">10-15 slide master template.</span>
@@ -1748,7 +1742,7 @@
 
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-start gap-3">
-                                        <input type="checkbox" name="addon_brochure" value="1200" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <input type="checkbox" name="addon_brochure" value="1200" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Company Profile / Brochure</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Multi-page layout design (up to 8 pages).</span>
@@ -1759,7 +1753,7 @@
 
                                 <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-start gap-3">
-                                        <input type="checkbox" name="addon_packaging" value="1500" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-input shrink-0">
+                                        <input type="checkbox" name="addon_packaging" value="1500" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container mt-1 calc-brand-input shrink-0">
                                         <div>
                                             <span class="block text-sm text-white font-bold">Product Packaging</span>
                                             <span class="block text-xs text-on-surface-variant mt-0.5 leading-relaxed">Custom box, label, or bag design.</span>
@@ -1783,7 +1777,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-center justify-between mb-3">
-                                        <input type="checkbox" name="addon_social_kit" value="650" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <input type="checkbox" name="addon_social_kit" value="650" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-brand-input">
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 650</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Social Media Kit</span>
@@ -1792,7 +1786,7 @@
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-center justify-between mb-3">
-                                        <input type="checkbox" name="addon_email_newsletter" value="450" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <input type="checkbox" name="addon_email_newsletter" value="450" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-brand-input">
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 450</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Email Newsletter Design</span>
@@ -1801,7 +1795,7 @@
 
                                 <label class="flex flex-col p-4 rounded-xl border border-white/10 bg-surface/40 cursor-pointer hover:border-primary-container/50 custom-checkbox-wrapper">
                                     <div class="flex items-center justify-between mb-3">
-                                        <input type="checkbox" name="addon_ad_creatives" value="500" class="calc_addon_initial custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-input">
+                                        <input type="checkbox" name="addon_ad_creatives" value="500" class="custom-checkbox w-4 h-4 rounded text-primary-container bg-surface border-white/30 focus:ring-primary-container calc-brand-input">
                                         <span class="text-xs font-label-sm text-white whitespace-nowrap">+ RM 500</span>
                                     </div>
                                     <span class="block text-sm text-white font-bold mb-1">Digital Ad Campaign</span>
@@ -1821,7 +1815,7 @@
                         
                         <div class="p-6 rounded-xl border border-secondary-container/30 bg-secondary-container/5 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-secondary-container/60 transition-colors cursor-pointer group custom-checkbox-wrapper">
                             <div class="flex gap-4 items-start">
-                                <input type="checkbox" name="calc_retainer" value="1600" class="calc_addon_recurring custom-checkbox w-5 h-5 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-input shrink-0">
+                                <input type="checkbox" name="calc_retainer" value="1600" class="custom-checkbox w-5 h-5 rounded text-secondary-container bg-surface border-white/30 focus:ring-secondary-container mt-1 calc-brand-input shrink-0">
                                 <div>
                                     <span class="flex items-center gap-2 font-bold text-white mb-2 group-hover:text-secondary-container transition-colors">
                                         Priority Design Partnership
@@ -2237,7 +2231,7 @@
 </div>
 
 <script>
-    // --- 1. Global Settings ---
+    // --- 1. Global Settings & Utils ---
     const WA_NUMBER = "60128218280";
     const DEFAULT_WA_MSG = "Hi Nuaie Studio, I'd like to find out more about your services.";
 
@@ -2247,6 +2241,9 @@
         link.target = "_blank";
         link.rel = "noopener noreferrer";
     });
+
+    // Auto-update footer year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
     // --- 2. Scroll Interaction ---
     window.addEventListener('scroll', () => {
@@ -2305,7 +2302,7 @@
         revealElements.forEach(el => revealObserver.observe(el));
     });
 
-    // --- 5. Generalized Slider Logic ---
+    // --- 5. Generalized Slider Logic (Repaired) ---
     class CoverflowSlider {
         constructor(containerEl) {
             this.container = containerEl;
@@ -2349,316 +2346,251 @@
             this.startAutoPlay();
         }
 
-        updateToggleButton() {
-            if (!this.toggleBtn) return;
-            const icon = this.toggleBtn.querySelector('.material-symbols-outlined');
-            if (this.userPaused) {
-                if (icon) icon.textContent = 'play_arrow';
-                this.toggleBtn.setAttribute('aria-label', 'Resume automatic slideshow');
-            } else {
-                if (icon) icon.textContent = 'pause';
-                this.toggleBtn.setAttribute('aria-label', 'Pause automatic slideshow');
-            }
-        }
-
-        next() { this.currentIndex = (this.currentIndex + 1) % this.items.length; this.update(); }
-        prev() { this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length; this.update(); }
-        startAutoPlay() { if (!this.autoPlayInterval) this.autoPlayInterval = setInterval(() => this.next(), 3500); }
-        pauseAutoPlay() { if (this.autoPlayInterval) { clearInterval(this.autoPlayInterval); this.autoPlayInterval = null; } }
-        resetAutoPlay() { this.pauseAutoPlay(); if (!this.userPaused) this.startAutoPlay(); }
-
         update() {
-            if (!this.items.length) return;
-            const len = this.items.length;
-            this.items.forEach((item, index) => {
-                let diff = index - this.currentIndex;
-                if (diff > Math.floor(len / 2)) diff -= len;
-                if (diff < -Math.floor(len / 2)) diff += len;
+            this.items.forEach((item, idx) => {
+                item.style.transform = 'none';
+                item.style.zIndex = 0;
+                item.style.opacity = 0;
+                item.style.pointerEvents = 'none';
 
-                let translateX = '-50%', scale = 1, zIndex = 10, opacity = 1, filter = 'brightness(1)', pointerEvents = 'auto';
-
-                if (diff === 0) {
-                    zIndex = 30;
-                    item.classList.add('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border', 'border-primary-container/30');
-                    item.classList.remove('border-white/5');
-                } else if (Math.abs(diff) === 1) {
-                    translateX = diff === 1 ? 'calc(-50% + 55%)' : 'calc(-50% - 55%)';
-                    scale = 0.85; zIndex = 20; opacity = 0.8; filter = 'brightness(0.6)';
-                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
-                    item.classList.add('border', 'border-white/5');
-                } else {
-                    translateX = diff > 1 ? 'calc(-50% + 100%)' : 'calc(-50% - 100%)';
-                    scale = 0.6; opacity = 0; pointerEvents = 'none';
-                    item.classList.remove('shadow-[0_20px_50px_rgba(0,0,0,0.5)]', 'border-primary-container/30');
+                if (idx === this.currentIndex) {
+                    item.style.transform = 'translate(-50%, -50%) scale(1)';
+                    item.style.zIndex = 10;
+                    item.style.opacity = 1;
+                    item.style.pointerEvents = 'auto';
+                } else if (idx === this.currentIndex - 1 || (this.currentIndex === 0 && idx === this.items.length - 1)) {
+                    item.style.transform = 'translate(-110%, -50%) scale(0.85)';
+                    item.style.zIndex = 5;
+                    item.style.opacity = 0.6;
+                } else if (idx === this.currentIndex + 1 || (this.currentIndex === this.items.length - 1 && idx === 0)) {
+                    item.style.transform = 'translate(10%, -50%) scale(0.85)';
+                    item.style.zIndex = 5;
+                    item.style.opacity = 0.6;
                 }
-                
-                item.style.transform = `translate(${translateX}, -50%) scale(${scale})`;
-                item.style.zIndex = zIndex; item.style.opacity = opacity; item.style.pointerEvents = pointerEvents;
-                const img = item.querySelector('img');
-                if (img) img.style.filter = filter;
             });
         }
+        
+        next() { this.currentIndex = (this.currentIndex + 1) % this.items.length; this.update(); }
+        prev() { this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length; this.update(); }
+        
+        startAutoPlay() { 
+            if(!this.autoPlayInterval) {
+                this.autoPlayInterval = setInterval(() => this.next(), 3500); 
+            }
+        }
+        
+        pauseAutoPlay() { 
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+        
+        resetAutoPlay() { 
+            if(!this.userPaused) { this.pauseAutoPlay(); this.startAutoPlay(); } 
+        }
+        
+        updateToggleButton() {
+            if (this.toggleBtn) {
+                this.toggleBtn.innerHTML = `<span class="material-symbols-outlined">${this.userPaused ? 'play_arrow' : 'pause'}</span>`;
+            }
+        }
     }
 
-    // --- 6. Lightweight Click-to-Play YouTube Embeds ---
-    document.querySelectorAll('.yt-facade').forEach(facade => {
-        facade.addEventListener('click', function() {
-            const vid = this.dataset.vid;
-            const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', `https://www.youtube.com/embed/${vid}?autoplay=1`);
-            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-            iframe.setAttribute('allowfullscreen', 'true');
-            iframe.className = 'absolute inset-0 w-full h-full border-0';
-            this.innerHTML = '';
-            this.appendChild(iframe);
-            this.classList.remove('cursor-pointer', 'group');
-        });
-    });
+    // Initialize all sliders
+    document.querySelectorAll('.gallery-slider').forEach(el => new CoverflowSlider(el));
 
-    // --- 7. Generalized Modals Logic ---
-    let lastFocusedElement = null;
-    
-    function getFocusableElements(modal) {
-        return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null);
-    }
-    
-    function openModal(modal, trigger) {
-        lastFocusedElement = trigger || document.activeElement;
-        modal.classList.remove('opacity-0', 'pointer-events-none');
-        modal.querySelector('.modal-content').classList.remove('scale-95');
-        modal.querySelector('.modal-content').classList.add('scale-100');
-        document.body.style.overflow = 'hidden'; 
-        const focusable = getFocusableElements(modal);
-        if (focusable.length) focusable[0].focus();
-    }
-
-    function closeModal(modal) {
-        modal.classList.add('opacity-0', 'pointer-events-none');
-        modal.querySelector('.modal-content').classList.add('scale-95');
-        modal.querySelector('.modal-content').classList.remove('scale-100');
-        document.body.style.overflow = ''; 
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
-    }
-
-    document.querySelectorAll('[data-modal-target]').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
+    // --- 6. Modal Open/Close Logic ---
+    document.querySelectorAll('[data-modal-target]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            const modal = document.getElementById(trigger.getAttribute('data-modal-target'));
-            if(modal) openModal(modal, trigger);
+            const modalId = btn.getAttribute('data-modal-target');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+                document.body.style.overflow = 'hidden';
+            }
         });
     });
 
     document.querySelectorAll('[data-close-modal]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            closeModal(this.closest('div[role="dialog"]'));
+        btn.addEventListener('click', (e) => {
+            const modal = e.target.closest('[role="dialog"]');
+            if (modal) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.add('scale-95');
+                document.body.style.overflow = '';
+            }
         });
     });
 
-    document.addEventListener('keydown', (e) => {
-        const openModalEl = document.querySelector('div[role="dialog"]:not(.opacity-0)');
-        if (!openModalEl) return;
-
-        if (e.key === 'Escape') closeModal(openModalEl);
-        if (e.key === 'Tab') {
-            const focusable = getFocusableElements(openModalEl);
-            if (!focusable.length) return;
-            const first = focusable[0], last = focusable[focusable.length - 1];
-            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
+    // --- 7. YouTube Video Facades ---
+    document.querySelectorAll('.yt-facade').forEach(facade => {
+        facade.addEventListener('click', function() {
+            const vidId = this.getAttribute('data-vid');
+            if(vidId && vidId !== "VIDEO_ID_10") {
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${vidId}?autoplay=1&rel=0`);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '1');
+                iframe.className = 'absolute inset-0 w-full h-full';
+                this.innerHTML = '';
+                this.appendChild(iframe);
+            }
+        });
     });
 
-    // --- 8. Generalized Quote Calculator Logic ---
-    function initQuoteCalculator(config) {
-        const form = document.getElementById(config.formId);
-        if (!form) return;
-        
-        const initialEl = document.getElementById(config.initialId);
-        const recurringEl = document.getElementById(config.recurringId);
+    // --- 8. Dynamic Quote Calculators ---
+    
+    // Web Design Calculator
+    function updateWebCalc() {
+        let initial = 3200; // Base cost
+        let annual = 850;   // Base hosting
 
-        function calc() {
-            let initial = config.baseInitial || 0;
-            let recurring = config.baseRecurring || 0;
-            
-            if (config.multipliers) {
-                config.multipliers.forEach(m => {
-                    const el = document.getElementById(m.id);
-                    if(el) initial += (parseInt(el.value) || 0) * m.rate;
-                });
-            }
-            if (config.radios) {
-                config.radios.forEach(name => {
-                    const checked = form.querySelector(`input[name="${name}"]:checked`);
-                    if (checked) initial += parseInt(checked.value) || 0;
-                });
-            }
+        initial += (parseInt(document.getElementById('calc_extra_pages').value) || 0) * 200;
+        initial += (parseInt(document.getElementById('calc_extra_products').value) || 0) * 20;
 
-            form.querySelectorAll('.calc_addon_initial:checked').forEach(cb => initial += parseInt(cb.value) || 0);
-            form.querySelectorAll('.calc_addon_recurring:checked').forEach(cb => recurring += parseInt(cb.value) || 0);
-            
-            if(initialEl) initialEl.textContent = initial.toLocaleString('en-MY');
-            if(recurringEl) recurringEl.textContent = recurring.toLocaleString('en-MY');
-        }
+        const aesthetics = document.querySelector('input[name="calc_aesthetics"]:checked');
+        if (aesthetics) initial += parseInt(aesthetics.value);
 
-        form.querySelectorAll('.calc-input').forEach(input => {
-            input.addEventListener('input', calc);
-            input.addEventListener('change', calc);
+        const content = document.querySelector('input[name="calc_content"]:checked');
+        if (content) initial += parseInt(content.value);
+
+        document.querySelectorAll('#quote-calculator-form .calc_addon_initial:checked').forEach(el => {
+            initial += parseInt(el.value);
         });
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const name = document.getElementById(`${config.prefix}_name`)?.value || "";
-            const email = document.getElementById(`${config.prefix}_email`)?.value || "";
-            const extra = document.getElementById(`${config.prefix}_extra`)?.value || "";
-            const intent = form.querySelector('input[name="calc_intent"]:checked')?.value || "";
-
-            let special = [];
-            form.querySelectorAll('input[name="calc_special"]:checked').forEach(cb => special.push("- " + cb.value));
-
-            let msg = `Hello Nuaie Studio,\n\nI just used the ${config.title} on your website and would like to discuss my project.\n\n`;
-            msg += `*Name:* ${name}\n*Email:* ${email}\n*${config.extraLabel}:* ${extra}\n\n`;
-            msg += `*Initial Investment:* RM ${initialEl.textContent}\n*${config.recurringLabel}:* RM ${recurringEl.textContent}\n\n`;
-
-            if (config.platformName) {
-                const p = form.querySelector(`input[name="${config.platformName}"]:checked`)?.value;
-                if(p) msg += `*Platform:* ${p}\n`;
-            }
-            if (special.length) msg += `\n*Special Requests:*\n${special.join('\n')}\n\n`;
-            else msg += `\n`;
-            
-            msg += `*Client Note:* ${intent}`;
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        document.querySelectorAll('#quote-calculator-form .calc_addon_recurring:checked').forEach(el => {
+            annual += parseInt(el.value);
         });
-        calc();
+
+        document.getElementById('calc_total_initial').innerText = initial.toLocaleString();
+        document.getElementById('calc_total_annual').innerText = annual.toLocaleString();
     }
     
-    // --- 9. Art Quote Calculator Specific Logic ---
-    function initArtCalculator() {
-        const form = document.getElementById('art-quote-calculator-form');
-        if (!form) return;
-        
-        // Exact Pricing Matrix referenced from the provided flyer
-        const artMatrix = {
-            'A5': { color: 100, bw: 70, frame: 30, rush: 25 },
-            'A4': { color: 190, bw: 130, frame: 50, rush: 50 },
-            'A3': { color: 330, bw: 220, frame: 80, rush: 90 },
-            'A2': { color: 520, bw: 370, frame: 120, rush: 140 }
-        };
-        
-        const totalEl = document.getElementById('art_calc_total');
-        const currencyEl = document.getElementById('art_calc_currency');
-        const promoNote = document.getElementById('art_calc_promo_note');
-        const sectionsToHideForCustom = document.querySelectorAll('.art-config-section');
+    document.querySelectorAll('#quote-calculator-form .calc-input').forEach(el => {
+        el.addEventListener('change', updateWebCalc);
+        el.addEventListener('input', updateWebCalc);
+    });
 
-        function calculateArt() {
-            const size = form.querySelector('input[name="art_calc_size"]:checked')?.value || 'A4';
-            
-            if (size === 'Custom') {
-                totalEl.textContent = 'Bespoke Quote';
-                currencyEl.classList.add('hidden');
-                promoNote.classList.add('hidden');
-                sectionsToHideForCustom.forEach(el => el.classList.add('opacity-50', 'pointer-events-none'));
-                return;
+    document.getElementById('quote-calculator-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('web_calc_name').value;
+        const initial = document.getElementById('calc_total_initial').innerText;
+        const annual = document.getElementById('calc_total_annual').innerText;
+        const msg = `Hi Nuaie Studio, I'm ${name}. I used your Web Design calculator and got an initial estimate of RM ${initial} (with RM ${annual}/yr upkeep). I'd like to discuss the next steps!`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // Branding Calculator
+    function updateBrandCalc() {
+        let initial = 0;
+        let monthly = 0;
+
+        const core = document.querySelector('input[name="calc_core_identity"]:checked');
+        if (core) initial += parseInt(core.value);
+
+        const guidelines = document.querySelector('input[name="calc_guidelines"]:checked');
+        if (guidelines) initial += parseInt(guidelines.value);
+
+        document.querySelectorAll('#branding-quote-calculator-form .calc_brand_input:checked, #branding-quote-calculator-form input[type="checkbox"]:not(.calc_addon_recurring):checked').forEach(el => {
+            if(el.value && !isNaN(el.value) && el.name !== 'calc_intent') {
+                initial += parseInt(el.value);
             }
-            
-            currencyEl.classList.remove('hidden');
-            sectionsToHideForCustom.forEach(el => el.classList.remove('opacity-50', 'pointer-events-none'));
-            
-            const style = form.querySelector('input[name="art_calc_style"]:checked')?.value || 'Color';
-            const finish = form.querySelector('input[name="art_calc_finish"]:checked')?.value || 'Artwork';
-            const speed = form.querySelector('input[name="art_calc_speed"]:checked')?.value || 'Standard';
-            
-            let total = 0;
-            const sizeData = artMatrix[size];
-            
-            // Check for Promo Condition (A4 + Color + Frame)
-            if (size === 'A4' && style === 'Color' && finish === 'Framed') {
-                total = 199;
-                promoNote.classList.remove('hidden');
-            } else {
-                promoNote.classList.add('hidden');
-                total = style === 'Color' ? sizeData.color : sizeData.bw;
-                if (finish === 'Framed') total += sizeData.frame;
-            }
-            
-            if (speed === 'Rush') total += sizeData.rush;
-            
-            totalEl.textContent = total.toLocaleString('en-MY');
-        }
-
-        form.querySelectorAll('.calc-art-input').forEach(input => {
-            input.addEventListener('change', calculateArt);
-        });
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const size = form.querySelector('input[name="art_calc_size"]:checked')?.value;
-            const style = form.querySelector('input[name="art_calc_style"]:checked')?.value;
-            const finish = form.querySelector('input[name="art_calc_finish"]:checked')?.value;
-            const speed = form.querySelector('input[name="art_calc_speed"]:checked')?.value;
-            
-            const name = document.getElementById('art_calc_name').value;
-            const email = document.getElementById('art_calc_email').value;
-            const extra = document.getElementById('art_calc_extra').value;
-
-            let msg = `Hi Razie,\n\nI would like to commission a physical artwork piece based on my calculator selections:\n\n`;
-            msg += `*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${extra}\n\n`;
-            
-            if(size === 'Custom') {
-                msg += `*Request Type:* Custom Artwork\n*Estimated Investment:* Bespoke Quote required.\n\nI will send my photo references and custom dimensions/ideas shortly.`;
-            } else {
-                let styleStr = style === 'Color' ? 'Full Color' : 'Black & White';
-                msg += `*Size:* ${size}\n*Style:* ${styleStr}\n*Finishing:* ${finish === 'Framed' ? 'Framed' : 'Artwork Only'}\n*Turnaround:* ${speed === 'Rush' ? 'Rush (2-3 Days)' : 'Standard (5 Days)'}\n\n`;
-                msg += `*Total Estimate:* RM ${totalEl.textContent}\n\nI will send my photo references shortly!`;
-            }
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         });
         
-        calculateArt();
+        const retainer = document.querySelector('input[name="calc_retainer"]:checked');
+        if (retainer) monthly += parseInt(retainer.value);
+
+        document.getElementById('brand_calc_total_initial').innerText = initial.toLocaleString();
+        document.getElementById('brand_calc_total_monthly').innerText = monthly.toLocaleString();
     }
 
-    // Initialize all components on DOM Ready
-    document.addEventListener("DOMContentLoaded", () => {
-        // Initialize dynamic sliders
-        document.querySelectorAll('.gallery-slider').forEach(slider => new CoverflowSlider(slider));
-        
-        // Initialize Web Calculator
-        initQuoteCalculator({
-            formId: 'quote-calculator-form',
-            prefix: 'web_calc',
-            title: 'Web Project Estimator',
-            extraLabel: 'Phone',
-            recurringLabel: 'Annual Upkeep',
-            platformName: 'calc_platform',
-            baseInitial: 3200,
-            baseRecurring: 850,
-            multipliers: [
-                { id: 'calc_extra_pages', rate: 200 },
-                { id: 'calc_extra_products', rate: 20 }
-            ],
-            radios: ['calc_aesthetics', 'calc_content']
-        });
-
-        // Initialize Branding Calculator
-        initQuoteCalculator({
-            formId: 'branding-quote-calculator-form',
-            prefix: 'brand_calc',
-            title: 'Branding Project Estimator',
-            extraLabel: 'Company',
-            recurringLabel: 'Monthly Retainer',
-            baseInitial: 0,
-            baseRecurring: 0,
-            radios: ['calc_core_identity', 'calc_guidelines']
-        });
-        
-        // Initialize the new Art Calculator
-        initArtCalculator();
-
-        // Dynamic footer year
-        const yearEl = document.getElementById('current-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    document.querySelectorAll('#branding-quote-calculator-form input').forEach(el => {
+        el.addEventListener('change', updateBrandCalc);
     });
-</script>
 
+    document.getElementById('branding-quote-calculator-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('brand_calc_name').value;
+        const brand = document.getElementById('brand_calc_extra').value;
+        const initial = document.getElementById('brand_calc_total_initial').innerText;
+        const msg = `Hi Nuaie Studio, I'm ${name} looking to build the brand for ${brand}. My estimated quote came out to RM ${initial}. I'd like to proceed!`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // Art Calculator
+    function updateArtCalc() {
+        let total = 0;
+        let isPromo = false;
+        const size = document.querySelector('input[name="art_calc_size"]:checked');
+        const style = document.querySelector('input[name="art_calc_style"]:checked');
+        const finish = document.querySelector('input[name="art_calc_finish"]:checked');
+        const speed = document.querySelector('input[name="art_calc_speed"]:checked');
+
+        if (!size || size.value === "Custom") {
+            document.getElementById('art_calc_currency').innerText = "";
+            document.getElementById('art_calc_total').innerText = "Custom Pricing";
+            document.getElementById('art_calc_promo_note').classList.add('hidden');
+            document.querySelectorAll('.art-config-section').forEach(el => el.style.opacity = '0.5');
+            return;
+        } else {
+            document.getElementById('art_calc_currency').innerText = "RM";
+            document.querySelectorAll('.art-config-section').forEach(el => el.style.opacity = '1');
+        }
+
+        // Base Sizes
+        if (size.value === "A5") total += 120;
+        if (size.value === "A4") total += 180;
+        if (size.value === "A3") total += 280;
+        if (size.value === "A2") total += 450;
+
+        // Finish
+        if (finish.value === "Framed") {
+            if (size.value === "A5") total += 40;
+            if (size.value === "A4") total += 60;
+            if (size.value === "A3") total += 100;
+            if (size.value === "A2") total += 180;
+        }
+
+        // Style
+        if (style.value === "BW") total -= 20;
+
+        // Rush
+        if (speed.value === "Rush") total += 150;
+
+        // Promo Check (A4 + Color + Framed + Standard Speed)
+        if (size.value === "A4" && style.value === "Color" && finish.value === "Framed" && speed.value === "Standard") {
+            total = 199;
+            isPromo = true;
+        }
+
+        document.getElementById('art_calc_total').innerText = total.toLocaleString();
+        
+        if (isPromo) {
+            document.getElementById('art_calc_promo_note').classList.remove('hidden');
+        } else {
+            document.getElementById('art_calc_promo_note').classList.add('hidden');
+        }
+    }
+
+    document.querySelectorAll('#art-quote-calculator-form input').forEach(el => {
+        el.addEventListener('change', updateArtCalc);
+    });
+    
+    // Initial Calc Setup
+    updateWebCalc();
+    updateBrandCalc();
+    updateArtCalc();
+
+    document.getElementById('art-quote-calculator-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('art_calc_name').value;
+        const total = document.getElementById('art_calc_total').innerText;
+        const msg = `Hi Nuaie Studio, I'm ${name}. I'm interested in commissioning an artwork piece (Estimated at RM ${total}).`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+</script>
 </body>
 </html>
