@@ -2528,26 +2528,28 @@ this.container.addEventListener('focusout', () => { if (!this.userPaused) this.s
 this.startAutoPlay();
 }
 update() {
-this.items.forEach((item, idx) => {
-item.style.transform = 'none';
-item.style.zIndex = 0;
-item.style.opacity = 0;
-item.style.pointerEvents = 'none';
-if (idx === this.currentIndex) {
-item.style.transform = 'translate(-50%, -50%) scale(1)';
-item.style.zIndex = 10;
-item.style.opacity = 1;
-item.style.pointerEvents = 'auto';
-} else if (idx === this.currentIndex - 1 || (this.currentIndex === 0 && idx === this.items.length - 1)) {
-item.style.transform = 'translate(-110%, -50%) scale(0.85)';
-item.style.zIndex = 5;
-item.style.opacity = 0.6;
-} else if (idx === this.currentIndex + 1 || (this.currentIndex === this.items.length - 1 && idx === 0)) {
-item.style.transform = 'translate(10%, -50%) scale(0.85)';
-item.style.zIndex = 5;
-item.style.opacity = 0.6;
-}
-});
+  this.items.forEach((item, idx) => {
+    // FIX: Maintain base centering instead of using 'none'
+    item.style.transform = 'translate(-50%, -50%) scale(0.85)';
+    item.style.zIndex = 0;
+    item.style.opacity = 0;
+    item.style.pointerEvents = 'none';
+    
+    if (idx === this.currentIndex) {
+      item.style.transform = 'translate(-50%, -50%) scale(1)';
+      item.style.zIndex = 10;
+      item.style.opacity = 1;
+      item.style.pointerEvents = 'auto';
+    } else if (idx === this.currentIndex - 1 || (this.currentIndex === 0 && idx === this.items.length - 1)) {
+      item.style.transform = 'translate(-110%, -50%) scale(0.85)';
+      item.style.zIndex = 5;
+      item.style.opacity = 0.6;
+    } else if (idx === this.currentIndex + 1 || (this.currentIndex === this.items.length - 1 && idx === 0)) {
+      item.style.transform = 'translate(10%, -50%) scale(0.85)';
+      item.style.zIndex = 5;
+      item.style.opacity = 0.6;
+    }
+  });
 }
 next() { this.currentIndex = (this.currentIndex + 1) % this.items.length; this.update(); }
 prev() { this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length; this.update(); }
